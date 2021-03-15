@@ -1,0 +1,984 @@
+<div class="top-bar">
+  <div class="container">
+    <p>Welcome to PyDe Ya</p>
+    <div class="right-sec">
+      <div class="social-top">
+          <ul>
+              <li>
+                  <span>
+                      <img src="assets/images/icon/header_support.png"/>&nbsp; +10 234 555 555
+                  </span>
+              </li>
+              <li>
+                 <!-- Select Language&nbsp;<img src="assets/images/icon/popup_dropdown.png" width="11px"/> -->
+                 <select id="lang" name="lang" class="custom-select sources" placeholder="Select Language">
+                  <option value="Noida">English</option>
+                  <option value="Delhi">Arabic</option>
+                  </select>
+                 <!-- <label for="cars">Select Language:</label>
+                 <select id="lang" name="lang">
+                   <option value="volvo">English</option>
+                   <option value="saab">Arabic</option>
+                 </select> -->
+              </li>
+          </ul>
+    </div>
+    </div>
+  </div>
+</div>
+<header>
+  <div class="search-head">
+      <div class="container">
+          <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-4">
+              <div class="logo"> <a href="javascript:void(0);" routerLink="/"><img src="assets/images/logo.png" alt="" ></a> </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+              <div class="search-cate">
+                  <input type="search" placeholder="Search for items, brands and inspirations">
+                  <button class="submit" type="submit"><i class="icon-magnifier"></i></button>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-8">
+              <div *ngIf = "isLoggedIn == 0" class="signin" data-target="#login" data-toggle="modal">
+                  <a  (click) = "clearCreateAccount()">Login/Signup</a>
+              </div>
+              <div class="profile-after-login">
+                  <div class="collapse navbar-collapse" id="nav-open-btn">
+                      <ul class="nav">
+                        <li class="dropdown" *ngIf = "isLoggedIn == 1">
+                           <a href="javascript:(0);" class="dropdown-toggle" data-toggle="dropdown"><img src="assets/images/profile.jpg"alt="" class="af-profile-img img-responsive">{{name}} &nbsp; <i class="fa fa-angle-down"></i> </a>
+                            <ul class="dropdown-menu multi-level animated-2s fadeInUpHalf profile-af-dropdown">
+                                <li><a routerLink="/ecommerce-order/my-ecommerce-order">My Orders
+                                    <span class="float-right"> <img src="assets/images/icon/dropdown_favourite.png" class="img-responsive"></span></a>
+                                  </li>  
+                                <li><a>Favourite
+                                    <span class="float-right"> <img src="assets/images/icon/dropdown_favourite.png" class="img-responsive"></span></a>
+                                  </li>
+                                  <li><a>Sell My Pyde Ya
+                                      <span class="float-right"> <img src="assets/images/icon/dropdown_sellpydeya.png" class="img-responsive"></span></a>
+                                  </li>
+                                  <li><a>My Chats
+                                      <span class="float-right"> <img src="assets/images/icon/dropdown_chat.png" class="img-responsive"></span></a>
+                                  </li>
+                                  <li><a>Notifications
+                                      <span class="float-right"> <img src="assets/images/icon/dropdown_notification.png" class="img-responsive"></span></a>
+                                  </li>
+                                  <li><a>Download The App
+                                      <span class="float-right"> <img src="assets/images/icon/dropdown_downloadapp.png" class="img-responsive"></span></a>
+                                  </li>
+                                  <li><a (click) = "logout()">Logout
+                                      <span class="float-right" > <img src="assets/images/icon/dropdown_logout.png" class="img-responsive"></span>
+                                    </a>
+                                  </li>
+                            </ul>
+                        </li>
+                        <li>
+                           <a [routerLink] = "['/product/my-ecommerce-cart']">
+                              <img src="assets/images/icon/header_cart.png" class="img-responsive">
+                           </a>
+                        </li>
+                      </ul>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <!-- Cart Part -->
+        </div>
+  </div>
+  <!-- Nav -->
+  <nav *ngIf="eccomerce" class="navbar ownmenu">
+    <div class="container">
+
+      <!-- Categories -->
+      <!-- <div class="cate-lst"> <a  data-toggle="collapse" class="cate-style" href="#cater"><i class="fa fa-bars"></i> CATEGORIES </a>
+        <div class="cate-bar-in">
+          <div id="cater" class="collapse">
+            <ul>
+                <li><a href="javascript:void(0);"><img src="assets/images/icon/bag.png"/> Bag</a></li>
+                <li><a href="javascript:void(0);"><img src="assets/images/icon/unboxed.png"/> Unboxed</a></li>
+                <li><a href="javascript:void(0);"><img src="assets/images/icon/flashlight.png"/> Light</a></li>
+                <li class="sub-menu"><a href="javascript:void(0);"><img src="assets/images/icon/telephoto.png"/> Camera Accessories</a>
+                  <ul>
+                    <li><a href="javascript:void(0);"> Light meters</a></li>
+                    <li><a href="javascript:void(0);"> Filter & Accessories</a></li>
+                    <li><a href="javascript:void(0);"> Tethering Cable</a>
+                    <li><a href="javascript:void(0);"> Battery Grip</a>
+                    <li><a href="javascript:void(0);"> Body & Lens Cap</a>
+                    <li><a href="javascript:void(0);"> Battery & Charger</a>
+                    <li><a href="javascript:void(0);"> Cleankit</a>
+                    <li><a href="javascript:void(0);"> Memory card/Reader</a>
+                    <li><a href="javascript:void(0);"> Dry Cabinet</a>
+                    <li><a href="javascript:void(0);"> Gear Protection</a>
+                    <li><a href="javascript:void(0);"> LCD</a>
+                  </ul>
+                </li>
+                <li><a href="javascript:void(0);"><img src="assets/images/icon/tripod.png"/> Tripod & Monopod</a></li>
+                <li><a href="javascript:void(0);"><img src="assets/images/icon/video.png"/> Video Accessories</a></li>
+                <li class="sub-menu"><a href="javascript:void(0);"><img src="assets/images/icon/big_lens.png"/> Camera & Lens</a>
+                  <ul>
+                    <li><a href="javascript:void(0);"> TV & Video</a></li>
+                    <li><a href="javascript:void(0);"> Camera, Photo & Video</a></li>
+                    <li><a href="javascript:void(0);"> Cell Phones & Accessories</a>
+                  </ul>
+                </li>
+              </ul>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- Navbar Header -->
+      <div class="navbar-header mg-btm">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-open-btn" aria-expanded="false"> <span><i class="fa fa-navicon"></i></span> </button>
+      </div>
+      <!-- NAV -->
+      <div class="collapse navbar-collapse" id="nav-open-btn">
+        <ul class="nav">
+          <li class="dropdown megamenu"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">All Categories</a>
+            <div class="dropdown-menu animated-2s fadeInUpHalf">
+              <div class="mega-inside">
+                <div class="row">
+                  <div class="col-sm-2" *ngFor =  "let element of catData" >
+                    <h6>{{element.category_name}} <i class="black fa fa-angle-right"></i></h6>
+                    <ul *ngFor = "let newData of element.subCatData">
+                      <li (click) = "navUrl(newData._id)"><a [routerLink] = "['/product/product-list', newData._id]"> {{newData.sub_category_name}} </a></li>
+                      <!-- <li><a> Carrier Phones </a></li>
+                      <li><a> Unlocked Phones </a></li>
+                      <li><a> Prime Exclusive Phones </a></li>
+                      <li><a> Accessories </a></li>
+                      <li><a> Cases </a></li>
+                      <li><a> Best Sellers </a></li>
+                      <li><a> Deals </a></li>
+                      <li><a> All Electronics </a></li> -->
+                    </ul>
+                  </div>
+                 
+                </div>
+              </div>
+            </div>
+          </li>
+          <!-- Mega Menu Nav -->
+         
+          <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Auto Parts </a>
+            <ul class="dropdown-menu multi-level animated-2s fadeInUpHalf">
+                <li><a href="About.html"> About </a></li>
+                <li><a href="LoginForm.html"> Login Form </a></li>
+                <li><a href="GridProducts_3Columns.html"> Products 3 Columns </a></li>
+                <li><a href="GridProducts_4Columns.html"> Products 4 Columns </a></li>
+                <li><a href="ListProducts.html"> List Products </a></li>
+                <li><a href="Product-Details.html"> Product Details </a></li>
+                <li><a href="ShoppingCart.html"> Shopping Cart</a></li>
+                <li><a href="PaymentMethods.html"> Payment Methods </a></li>
+                <li><a href="DeliveryMethods.html"> Delivery Methods</a></li>
+                <li><a href="Confirmation.html"> Confirmation </a></li>
+                <li><a href="CheckoutSuccessful.html"> Checkout Successful </a></li>
+                <li><a href="Error404.html"> Error404 </a></li>
+                <li><a href="contact.html"> Contact </a></li>
+                <li class="dropdown-submenu"><a href="#."> Dropdown Level </a>
+                  <ul class="dropdown-menu animated-2s fadeInRight">
+                    <li><a href="#.">Level 1</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+
+
+            <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Fashion </a>
+              <ul class="dropdown-menu multi-level animated-2s fadeInUpHalf">
+                  <li><a href="About.html"> About </a></li>
+                  <li><a href="LoginForm.html"> Login Form </a></li>
+                  <li><a href="GridProducts_3Columns.html"> Products 3 Columns </a></li>
+                  <li><a href="GridProducts_4Columns.html"> Products 4 Columns </a></li>
+                  <li><a href="ListProducts.html"> List Products </a></li>
+                  <li><a href="Product-Details.html"> Product Details </a></li>
+                  <li><a href="ShoppingCart.html"> Shopping Cart</a></li>
+                  <li><a href="PaymentMethods.html"> Payment Methods </a></li>
+                  <li><a href="DeliveryMethods.html"> Delivery Methods</a></li>
+                  <li><a href="Confirmation.html"> Confirmation </a></li>
+                  <li><a href="CheckoutSuccessful.html"> Checkout Successful </a></li>
+                  <li><a href="Error404.html"> Error404 </a></li>
+                  <li><a href="contact.html"> Contact </a></li>
+                  <li class="dropdown-submenu"><a href="#."> Dropdown Level </a>
+                    <ul class="dropdown-menu animated-2s fadeInRight">
+                      <li><a href="#.">Level 1</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Gadgets </a>
+                <ul class="dropdown-menu multi-level animated-2s fadeInUpHalf">
+                    <li><a href="About.html"> About </a></li>
+                    <li><a href="LoginForm.html"> Login Form </a></li>
+                    <li><a href="GridProducts_3Columns.html"> Products 3 Columns </a></li>
+                    <li><a href="GridProducts_4Columns.html"> Products 4 Columns </a></li>
+                    <li><a href="ListProducts.html"> List Products </a></li>
+                    <li><a href="Product-Details.html"> Product Details </a></li>
+                    <li><a href="ShoppingCart.html"> Shopping Cart</a></li>
+                    <li><a href="PaymentMethods.html"> Payment Methods </a></li>
+                    <li><a href="DeliveryMethods.html"> Delivery Methods</a></li>
+                    <li><a href="Confirmation.html"> Confirmation </a></li>
+                    <li><a href="CheckoutSuccessful.html"> Checkout Successful </a></li>
+                    <li><a href="Error404.html"> Error404 </a></li>
+                    <li><a href="contact.html"> Contact </a></li>
+                    <li class="dropdown-submenu"><a href="#."> Dropdown Level </a>
+                      <ul class="dropdown-menu animated-2s fadeInRight">
+                        <li><a href="#.">Level 1</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+              </li>
+            <li> <a href="javascript:void(0);">Offers</a></li>
+            <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Home Appliances</a>
+              <ul class="dropdown-menu multi-level animated-2s fadeInUpHalf">
+                  <li><a href="About.html"> About </a></li>
+                  <li><a href="LoginForm.html"> Login Form </a></li>
+                  <li><a href="GridProducts_3Columns.html"> Products 3 Columns </a></li>
+                  <li><a href="GridProducts_4Columns.html"> Products 4 Columns </a></li>
+                  <li><a href="ListProducts.html"> List Products </a></li>
+                  <li><a href="Product-Details.html"> Product Details </a></li>
+                  <li><a href="ShoppingCart.html"> Shopping Cart</a></li>
+                  <li><a href="PaymentMethods.html"> Payment Methods </a></li>
+                  <li><a href="DeliveryMethods.html"> Delivery Methods</a></li>
+                  <li><a href="Confirmation.html"> Confirmation </a></li>
+                  <li><a href="CheckoutSuccessful.html"> Checkout Successful </a></li>
+                  <li><a href="Error404.html"> Error404 </a></li>
+                  <li><a href="contact.html"> Contact </a></li>
+                  <li class="dropdown-submenu"><a href="#."> Dropdown Level </a>
+                    <ul class="dropdown-menu animated-2s fadeInRight">
+                      <li><a href="#.">Level 1</a></li>
+                    </ul>
+                  </li>
+                </ul>
+            </li>
+        </ul>
+      </div>
+
+      <!-- NAV RIGHT -->
+      <div class="nav-right">
+          <ul class="">
+              <li>
+                <a>
+                    <img src="assets/images/icon/menu_food.png"/> Food
+                </a>
+              </li>
+              <li>
+                  <a routerLink="/grocery/grocery-home" (click)="changetype()">
+                      <img src="assets/images/icon/menu_grocery.png"/> Grocery
+                  </a>
+              </li>
+              <li>
+                  <a>
+                      <img src="assets/images/icon/menu_pharmacy.png"/> Pharmacy
+                  </a>
+                </li>
+            </ul>
+      </div>
+    </div>
+  </nav>
+
+  <nav *ngIf="grocery" class="navbar ownmenu grocery-theme">
+    <div class="container"> 
+      
+      <!-- Categories -->
+      
+      <!-- Navbar Header -->
+      <div class="navbar-header mg-btm">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-open-btn" aria-expanded="false"> <span><i class="fa fa-navicon"></i></span> </button>
+      </div>
+      <!-- NAV -->
+      <div class="collapse navbar-collapse" id="nav-open-btn">
+        <ul class="nav">
+
+
+                <li class="dropdown megamenu"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">All Categories</a>
+                    <div class="dropdown-menu animated-2s fadeInUpHalf">
+                      <div class="mega-inside">
+                        <div class="row">
+                          <div class="col-sm-2" *ngFor =  "let element of groceryCatData" >
+                            <h6>{{element.category_name}} <i class="black fa fa-angle-right"></i></h6>
+                            <ul *ngFor = "let newData of element.sub_cat_data">
+                              <li (click) = "navUrl(newData._id)">
+                                <a [routerLink] = "['/grocery/grocery-product-list',newData._id,newData.sub_category_name]"> {{newData.sub_category_name}} </a></li>
+                              <!-- <li><a> Carrier Phones </a></li>
+                              <li><a> Unlocked Phones </a></li>
+                              <li><a> Prime Exclusive Phones </a></li>
+                              <li><a> Accessories </a></li>
+                              <li><a> Cases </a></li>
+                              <li><a> Best Sellers </a></li>
+                              <li><a> Deals </a></li>
+                              <li><a> All Electronics </a></li> -->
+                            </ul>
+                          </div>
+                         
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+    
+                  <!-- <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Auto Parts </a>
+                    <ul class="dropdown-menu multi-level animated-2s fadeInUpHalf">
+                        <li><a href="About.html"> About </a></li>
+                        <li><a href="LoginForm.html"> Login Form </a></li>
+                        <li><a href="GridProducts_3Columns.html"> Products 3 Columns </a></li>
+                        <li><a href="GridProducts_4Columns.html"> Products 4 Columns </a></li>
+                        <li><a href="ListProducts.html"> List Products </a></li>
+                        <li><a href="Product-Details.html"> Product Details </a></li>
+                        <li><a href="ShoppingCart.html"> Shopping Cart</a></li>
+                        <li><a href="PaymentMethods.html"> Payment Methods </a></li>
+                        <li><a href="DeliveryMethods.html"> Delivery Methods</a></li>
+                        <li><a href="Confirmation.html"> Confirmation </a></li>
+                        <li><a href="CheckoutSuccessful.html"> Checkout Successful </a></li>
+                        <li><a href="Error404.html"> Error404 </a></li>
+                        <li><a href="contact.html"> Contact </a></li>
+                        <li class="dropdown-submenu"><a href="#."> Dropdown Level </a>
+                          <ul class="dropdown-menu animated-2s fadeInRight">
+                            <li><a href="#.">Level 1</a></li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li> -->
+
+          <li class="dropdown" *ngFor="let navdata of groceryCatData | slice : 0:5">
+              <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">{{navdata.category_name}}</a>
+
+              <ul class="dropdown-menu multi-level animated-2s fadeInUpHalf" *ngFor = "let newData of navdata.sub_cat_data">
+
+                    <li (click) = "navUrl(newData._id)">
+                            <a [routerLink] = "['/grocery/grocery-product-list',newData._id,newData.sub_category_name]"> {{newData.sub_category_name}} </a></li>
+                        
+                <!-- <li><a href="About.html"> About </a></li>
+                <li><a href="LoginForm.html"> Login Form </a></li> -->
+                
+                <!-- <li class="dropdown-submenu"><a href="#."> Dropdown Level </a>
+                  <ul class="dropdown-menu animated-2s fadeInRight">
+                    <li><a href="#.">Level 1</a></li>
+                  </ul>
+                </li> -->
+              </ul>
+
+          </li>
+
+
+        </ul>
+      </div>
+      
+      <!-- NAV RIGHT  -->
+      <div class="nav-right nav-right-groc">
+          <ul class="">
+              <li>
+                <a>
+                    <img src="assets/images/icon/menu_food.png"/> Food
+                </a>
+              </li>
+              <li>
+                  <a routerLink="/">
+                      <img src="assets/images/icon/menu_grocery.png"/> Eccomerce
+                  </a>
+              </li>
+              <li> 
+                  <a>
+                      <img src="assets/images/icon/menu_pharmacy.png"/> Pharmacy
+                  </a>
+                </li>
+            </ul>
+      </div>
+    </div>
+  </nav>
+
+
+</header>
+
+
+<!---------------------------------------Modal Start-------------------------------------------------->
+
+<div class="modal fade" id="login">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <section class="wrapper">
+                    <ul class="tabs">
+                      <li><a id="loginlink" href="#tab1">LOGIN TO PYDE YA</a></li>
+                      <li><a id="signuplink" href="#tab2" (click) = "clearCreateAccount()">CREATE NEW ACCOUNT</a></li>
+                    </ul>
+                    <div class="clr"></div>
+                    <section class="block">
+                      <article id="tab1">
+
+
+                        <form #loginForm=ngForm (ngSubmit)="onSubmit()">
+
+                          <div class="alert alert-danger" [hidden] = "!error">
+                            {{error}}
+                          </div>
+
+                          <div class="form-group">
+                              <input type="text"   ng2TelInput
+                              [ng2TelInputOptions]="{initialCountry: 'in'}"name="mobile_number" class="form-control" placeholder="Enter Mobile no" [(ngModel)] = "form.mobile_number"  (countryChange)="onCountryChange($event)" id= "email" required/>
+
+                          </div>
+
+
+                            <input type="hidden" id="defaultCountry" class="form-control" name="country_code" [(ngModel)] = "form.country_code" required>
+
+
+                            <input type="hidden" value="45.43" class="form-control" name="latitude" [(ngModel)] = "form.latitude" required>
+
+                            <input type="hidden" value="12.54" class="form-control" name="longitude" [(ngModel)] = "form.longitude" required>
+
+                            <input type="hidden" class="form-control" name="device_type" [(ngModel)] = "form.device_type" required>
+
+
+                           <input type="hidden" class="form-control" name="device_token" [(ngModel)] = "form.device_token" required>
+
+
+                          <div class="form-group">
+                              <input type="password" name="password" class="form-control" placeholder="Enter Your Password" [(ngModel)] = "form.password" required/>
+                          </div>
+
+                          <div class="forgot">
+                              <a href="javascript:void(0);" class="foget-password"  data-target="#forgot" (click) = "resetForm()" data-toggle="modal">Forgot Password?</a>
+                          </div>
+
+                         <input type="submit" class="btn-green btn-block" [disabled]="!loginForm.valid" name="submit" value="LogIn">
+
+                      </form>
+
+                        <p class="margin-top-15 margin-bottom-15">Or</p>
+                        <div class="row">
+                            <div class="col-lg-4 col-xs-4">
+                                <div>
+                                    <img class="img-responsive pointer" src="assets/images/icon/google-icon.png" width="28px"/>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-xs-4">
+                                <div>
+                                    <img class="img-responsive pointer" src="assets/images/icon/twitter.png" width="35px"/>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-xs-4">
+                                <div>
+                                    <img class="img-responsive pointer" src="assets/images/icon/instagram.png" width="35px"/>
+                                </div>
+                            </div>
+                        </div>
+                      </article>
+                      <article id="tab2">
+
+                          <form #registerForm=ngForm (ngSubmit)="onregisterSubmit()">
+
+                            <div class="alert alert-danger" [hidden] = "!error" *ngIf="error">
+                              {{error}}
+                            </div>
+
+                              <div class="form-group">
+                                  <input type="text"  ng2TelInput
+                                  [ng2TelInputOptions]="{initialCountry: 'in'}"class="form-control" name="mobile_number" placeholder="Enter Mobile Number" [(ngModel)] = "registerFormname.mobile_number" id = "email1"   (countryChange)="onCountryChange($event)" required/>
+                              </div>
+
+                              <input type="hidden" id="defaultCountry" class="form-control" name="country_code" [(ngModel)] = "registerFormname.country_code" required>
+
+                              <input type="hidden" value="45.43" class="form-control" name="latitude" [(ngModel)] = "registerFormname.latitude" required>
+
+                              <input type="hidden" value="12.54" class="form-control" name="longitude" [(ngModel)] = "registerFormname.longitude" required>
+
+                              <input type="hidden" class="form-control" name="device_type" [(ngModel)] = "registerFormname.device_type" required>
+
+                              <input type="hidden" class="form-control" name="device_token" [(ngModel)] = "registerFormname.device_token" required>
+
+
+                              <input type="submit" class="btn-green btn-block" [disabled]="!registerForm.valid" name="submit" value="Next">
+
+                              <!-- <button type="button" data-target="#otp" data-toggle="modal" class="register btn-green btn-block">Next</button> -->
+
+                            </form>
+                            <p class="margin-top-15 margin-bottom-15">Or</p>
+                        <div class="row">
+                            <div class="col-lg-4 col-xs-4">
+                                <div>
+                                    <img class="img-responsive pointer" src="assets/images/icon/google-icon.png" width="28px"/>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-xs-4">
+                                <div>
+                                    <img class="img-responsive pointer" src="assets/images/icon/twitter.png" width="35px"/>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-xs-4">
+                                <div>
+                                    <img class="img-responsive pointer" src="assets/images/icon/instagram.png" width="35px"/>
+                                </div>
+                            </div>
+                        </div>
+                      </article>
+                    </section>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="otp" data-keyboard="false" data-backdrop="static" >
+  <div class="modal-dialog modal-md">
+      <div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+              <div class="otp">
+                  <h6>Enter Verification Code</h6>
+                  <p>We have sent you a 4 digit verification on your registered mobile number.</p>
+                  <form #verifyotpForm=ngForm (ngSubmit)="onotpSubmit()">
+
+                    <ul>
+                      <li class="otp-labl"><input class="otp1 form-control" id="otp1" [(ngModel)]="firstOtp" name="firstOtp[]" type="text"  placeholder="_" maxlength="1"></li>
+                      <li class="otp-labl"><input class="otp1 form-control" id="otp2" [(ngModel)]="secoundOtp" name="secoundOtp[]"  type="text"  placeholder="_" maxlength="1"></li>
+                      <li class="otp-labl"><input class="otp1 form-control" id="otp3" [(ngModel)]="thirdOtp" name="thirdOtp[]" type="text"  placeholder="_" maxlength="1"></li>
+                      <li class="otp-labl"><input class="otp1 form-control" id="otp4" [(ngModel)]="forthOtp" name="forthOtp[]" type="text"  placeholder="_" maxlength="1"></li>
+
+                    </ul>
+
+                    <input type="submit" class="btn-green btn-block" [disabled]="!verifyotpForm.valid" name="submit" value="Next">
+
+                  </form>
+
+                  <p class="margin-top-15 margin-bottom-0"><a href="javascript:void(0)" (click) = "resendOtpSignUp()">Resend OTP </a>
+
+                  </p>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="modal fade" id="awr" data-keyboard="false" data-backdrop="static" >
+  <div class="modal-dialog modal-md">
+      <div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+              <div class="otp">
+                  <h6>Enter Verification Code for forgot password</h6>
+                  <p>We have sents you a 4 digit verification on your registered mobile number and email address.</p>
+                  <form #verifyforgototpForm=ngForm (ngSubmit)="onotpforgotSubmit()">
+
+                    <ul>
+                      <li class="otp-labl"><input class="otp1 form-control" id="otp1" [(ngModel)]="firstOtp" name="firstOtp[]" type="text"  placeholder="_" maxlength="1"></li>
+                      <li class="otp-labl"><input class="otp1 form-control" id="otp2" [(ngModel)]="secoundOtp" name="secoundOtp[]"  type="text"  placeholder="_" maxlength="1"></li>
+                      <li class="otp-labl"><input class="otp1 form-control" id="otp3" [(ngModel)]="thirdOtp" name="thirdOtp[]" type="text"  placeholder="_" maxlength="1"></li>
+                      <li class="otp-labl"><input class="otp1 form-control" id="otp4" [(ngModel)]="forthOtp" name="forthOtp[]" type="text"  placeholder="_" maxlength="1"></li>
+
+                    </ul>
+
+                    <input type="submit" class="btn-green btn-block" [disabled]="!verifyforgototpForm.valid" name="submit" value="Next">
+
+                  </form>
+
+                  <p><a href="javascript:void(0)" (click) = "resendOtp()">Resend OTP </a>
+
+                  </p>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="awr1" data-keyboard="false" data-backdrop="static" >
+  <div class="modal-dialog modal-md">
+      <div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+              <div class="otp">
+                  <h6>Enter Verification Code for forgot password</h6>
+                  <p>We have sents you a 4 digit verification on your registered mobile number and email address.</p>
+                  <form #verifyforgototpForm=ngForm (ngSubmit)="onotpforgotSubmit()">
+
+                    <ul>
+                      <li class="otp-labl"><input class="otp1 form-control" id="otp1" [(ngModel)]="firstOtp" name="firstOtp[]" type="text"  placeholder="_" maxlength="1"></li>
+                      <li class="otp-labl"><input class="otp1 form-control" id="otp2" [(ngModel)]="secoundOtp" name="secoundOtp[]"  type="text"  placeholder="_" maxlength="1"></li>
+                      <li class="otp-labl"><input class="otp1 form-control" id="otp3" [(ngModel)]="thirdOtp" name="thirdOtp[]" type="text"  placeholder="_" maxlength="1"></li>
+                      <li class="otp-labl"><input class="otp1 form-control" id="otp4" [(ngModel)]="forthOtp" name="forthOtp[]" type="text"  placeholder="_" maxlength="1"></li>
+
+                    </ul>
+
+                    <input type="submit" class="btn-green btn-block" [disabled]="!verifyforgototpForm.valid" name="submit" value="Next">
+
+                  </form>
+
+                  <p><a href="javascript:void(0)" (click) = "resendOtp()">Resend OTP </a>
+
+                  </p>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="forgot">
+  <div class="modal-dialog modal-md">
+      <div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+          </div>
+
+          <div class="modal-body">
+              <div class="forgot-pass text-center">
+                  <h6>Forgot Password</h6>
+                  <p>Please Enter your registered email ID or mobile number to reset your password</p>
+                  <form #forgotpassForm=ngForm (ngSubmit)="forgotpasswordSubmit()">
+
+                      <div class="form-group">
+                        <input type="text" ng2TelInput [ng2TelInputOptions]="{initialCountry: 'in'}"
+                         name="mobile_number" class="form-control"   placeholder="Enter Mobile Number" [(ngModel)] = "forgotpasswordForm.mobile_number" (countryChange)="onCountryChange($event)"  id = "email2" required/>
+                      </div>
+
+                      <input type="hidden" class="form-control" name="country_code" [(ngModel)] = "forgotpasswordForm.country_code">
+
+                      <input type="submit" class="btn-green btn-block" [disabled]="!forgotpassForm.valid" name="submit" value="Next">
+
+                  </form>
+
+
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="change-pass">
+  <div class="modal-dialog modal-md">
+      <div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+          </div>
+          <div class="modal-body">
+              <div class="forgot-pass text-center">
+                  <h6>Change Password</h6>
+                  <form #setforgotpasswordForm=ngForm (ngSubmit)="setforgotpasswordSubmit()">
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="password" [(ngModel)] = "password" placeholder="Enter Strong Password"/>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="password"  class="form-control" name="password1" [(ngModel)] = "password1" placeholder="Re-enter Strong Password"/>
+                    </div>
+                    <input type="submit" class="btn-green btn-block" [disabled]="!setforgotpasswordForm.valid" name="submit" value="Next">
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="set-password-account">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+            </div>
+            <div class="modal-body">
+                <div class="forgot-pass">
+                    <h6>Set Your Password For Your Account</h6>
+
+                    <form #setprofilepasswordForm=ngForm (ngSubmit)="setprofilepasswordSubmit()">
+                      <div class="form-group">
+                          <input type="password" class="form-control" name="password" [(ngModel)] = "password" placeholder="Enter Strong Password"/>
+                      </div>
+
+                      <div class="form-group">
+                          <input type="password"  class="form-control"  name="password1" [(ngModel)] = "password1" placeholder="Re-enter Strong Password"/>
+                      </div>
+                      <input type="submit" class="btn-green btn-block" [disabled]="!setprofilepasswordForm.valid" name="submit" value="Next">
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="creater-profile">
+  <div class="modal-dialog modal-md">
+      <div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+              <div class="forgot-pass text-left">
+                  <h6 class="mb-13">Create Profile</h6>
+                  <h6 class="fs-13 mb-13">Personal Details</h6>
+                    <div class="form-group">
+                      <div class="img-box profilPic">
+                          <div class="img mb-2">
+                                <label for="file-input">
+                                  <img [src]="profileImgURL" *ngIf="profileImgURL"/>
+                                  <img src="assets/images/icon/creatprfl_deflimg.png" class="pointer img-responsive" *ngIf="!profileImgURL"/>
+                                </label>
+                                <input type="file" #file accept='image/*' id="file-input" class="d-none" (change)="profileImg(file.files)"/>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" [(ngModel)]='name' placeholder="Name"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" [(ngModel)]='DOB' id="datepicker" placeholder="Date of Birth"/>
+                        <img src="assets/images/icon/popup_calemdar.png" class="pointer img-responsive abs-cal"/>
+                    </div>
+                    <div class="form-group">
+                      <div class="row">
+                          <div class="col-md-3">
+                              <p class="margin-top-7 mb-0">Gender</p>
+                          </div>
+                          <div class="col-md-3">
+                              <div class="form-radio">
+                                  <div class="radio">
+                                      <input id="radio-1" (click)='selectGender($event.target.value)' value="Male" name="radio" type="radio" checked>
+                                      <label for="radio-1"   class="radio-label">Male</label>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-md-3">
+                              <div class="form-radio">
+                                  <div class="radio">
+                                      <input id="radio-2" (click)='selectGender($event.target.value)' value="Female" name="radio" type="radio" checked>
+                                      <label for="radio-2" class="radio-label">Female</label>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                    <button type="button"  class="btn-green btn-block profile-next" (click) = "nextCall()">Next</button>
+                    <!-- data-target="#creater-profile-deliver"  data-toggle="modal" -->
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="modal fade" id="creater-profile-deliver">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="forgot-pass text-left">
+                    <h6 class="mb-13">Personal Details</h6>
+                    <h6 class="fs-13 mb-13">Delivery Address</h6>
+                    <div class="form-group">
+                        <input type="text" class="form-control" [(ngModel)]='houseName' placeholder="House Number"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" [(ngModel)]='buildingTower' placeholder="Building/Tower"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" [(ngModel)]='locality' placeholder="Locality"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" [(ngModel)]='district'  placeholder="District"/>
+                    </div>
+                    <div class="form-group">
+                        <select name="sources" [(ngModel)]='city' id="sources" class="custom-select sources" placeholder="Select City">
+                            <option value="profile" disabled>Select Country</option>
+                            <option value="Noida">Noida</option>
+                            <option value="Delhi">Delhi</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" [(ngModel)]='Pincode' placeholder="Pincode"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" [(ngModel)]='alternateNo' placeholder="Alternate Mobile Number"/>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="margin-top-7 mb-0">Save as</p>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-radio">
+                                    <div class="radio">
+                                        <input id="radio-1" (click)='selectType($event.target.value)' value="Home" name="radio" type="radio" checked>
+                                        <label for="radio-1" class="radio-label">Home</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-radio">
+                                    <div class="radio">
+                                        <input id="radio-3" (click)='selectType($event.target.value)' value="Office" name="radio" type="radio" checked>
+                                        <label for="radio-3" class="radio-label">Office</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-radio">
+                                    <div class="radio">
+                                        <input id="radio-4" (click)='selectType($event.target.value)' value="Other" name="radio" type="radio" checked>
+                                        <label for="radio-4" class="radio-label">Other</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                    <button type="button" (click)="createProfile()" data-toggle="modal" class="profile-payment btn-green btn-block">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="creater-profile-payment">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="forgot-pass text-left">
+                    <h6 class="mb-13">Create Profile</h6>
+                    <h6 class="fs-13 mb-13">Choose a Subscription plan to save 50% on delivery charges</h6>
+                    <h6 class="fs-13 mb-13">Select Duration</h6>
+                    <form>
+                    <div class="form-group">
+                        <div class="profile-greadnt pro-bg1">
+                              <ul>
+                                 <li>
+                                   <div class="profile-radio">
+                                      <div class="form-radio">
+                                          <div class="radio mt-0 mb-0">
+                                              <input id="radio-4" name="radio" type="radio" checked>
+                                              <label for="radio-4" class="radio-label">1 Month</label>
+                                          </div>
+                                      </div>
+                                   </div>
+                                 </li>
+                                 <li>
+                                  <sup class="fs-9">$</sup>  3
+                                 </li>
+                              </ul>
+                        </div>
+                        <div class="profile-greadnt pro-bg2">
+                            <ul>
+                              <li>
+                                <div class="profile-radio">
+                                    <div class="form-radio">
+                                        <div class="radio mt-0 mb-0">
+                                            <input id="radio-4" name="radio" type="radio" checked>
+                                            <label for="radio-4" class="radio-label">3 Month</label>
+                                        </div>
+                                    </div>
+                                </div>
+                              </li>
+                              <li>
+                                <sup class="fs-9">$</sup>  3
+                              </li>
+                            </ul>
+                        </div>
+                        <div class="profile-greadnt pro-bg3">
+                          <ul>
+                              <li>
+                                <div class="profile-radio">
+                                  <div class="form-radio">
+                                      <div class="radio mt-0 mb-0">
+                                          <input id="radio-4" name="radio" type="radio" checked>
+                                          <label for="radio-4" class="radio-label">6 Month</label>
+                                      </div>
+                                  </div>
+                                </div>
+                              </li>
+                              <li>
+                              <sup class="fs-9">$</sup>  3
+                              </li>
+                          </ul>
+
+                        </div>
+                        <div class="profile-greadnt pro-bg4">
+                          <ul>
+                              <li>
+                                <div class="profile-radio">
+                                  <div class="form-radio">
+                                      <div class="radio mt-0 mb-0">
+                                          <input id="radio-4" name="radio" type="radio" checked>
+                                          <label for="radio-4" class="radio-label">1 Year</label>
+                                      </div>
+                                  </div>
+                                </div>
+                              </li>
+                              <li>
+                              <sup class="fs-9">$</sup>  3
+                              </li>
+                          </ul>
+                        </div>
+                        <div class="profile-amount">
+                            <ul>
+                                <li>Payment Amount</li>
+                                <li>$ 11</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="d-flex ">
+                            <button type="submit" class="mt-0 btn-green btn-block margin-right-5"  (click) = "confirm()">Confirm and Pay</button>
+                            <button type="submit" class="mt-0 btn-green  btn-border btn-block" (click)= "skip()">Skip</button>
+                        </div>
+                    </div>
+                  </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="email">
+  <div class="modal-dialog modal-md">
+      <div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+          </div>
+          <div class="modal-body">
+              <div class="email">
+                  <img src="assets/images/icon/warning.png"/>
+                  <p>Email Address/Mobile Number Already Exist</p>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+

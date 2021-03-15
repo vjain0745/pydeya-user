@@ -1,0 +1,119 @@
+<app-header></app-header>
+
+<!-- Content -->
+ <div id="content">
+    <section class="padding-top-30 padding-bottom-30">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
+                    <app-order-profile-left></app-order-profile-left>
+                </div> 
+                <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
+                    <div class="ecom-my-chat bg-white">  
+                        <div class="ecom-my-chat-title">
+                            <h6>My Chats</h6>
+                        </div>
+                        <h6 class="chat-del-boy">My Chats With Delivery Boy</h6>
+                        <div class="chat-listings">   
+                            <ul>
+                                <li>
+                                    <div class="my-chat-list-person">
+                                        <div class="my-chat-image">
+                                            <img src="assets/images/team-img-2.jpg" class="img-responsive">
+                                        </div>
+                                        <div class="my-chat-list">
+                                            <h6>Marcia Davis</h6>
+                                            <p>he i am there</p>
+                                        </div>
+                                    </div>
+                                </li> 
+                            </ul>
+                        </div>
+                    </div>     
+                </div>     
+                <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">    
+                    <div class="order-ecommerce-right bg-white">     
+                        
+                    </div>
+                </div>
+            </div>  
+        </div>
+    </section> 
+ </div>
+<app-footer></app-footer>    
+
+<div class="modal fade" id="add-address">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="forgot-pass text-left">
+                    <h6 class="margin-top-0 fs-13 mb-13">Add Address</h6>
+                    <form>
+                    <div class="form-group"> 
+                        <input type="text" class="form-control" placeholder="House Number"/>  
+                    </div>
+                    <div class="form-group"> 
+                        <input type="text" class="form-control" placeholder="Building/Tower"/>  
+                    </div>
+                    <div class="form-group"> 
+                        <input type="text" class="form-control" placeholder="Locality"/>  
+                    </div>
+                    <div class="form-group"> 
+                        <input type="text" class="form-control" placeholder="District"/>  
+                    </div>
+                    <div class="form-group"> 
+                        <select name="sources" id="sources" class="custom-select sources" placeholder="Select City">
+                            <option value="profile">Select Country</option>
+                            <option value="word">Noida</option>
+                            <option value="hashtag">Delhi</option>
+                        </select> 
+                    </div>
+                    <div class="form-group"> 
+                        <input type="text" class="form-control" placeholder="Pincode"/>  
+                    </div> 
+                    <div class="form-group"> 
+                        <input type="text" class="form-control" placeholder="Alternate Mobile Number"/>  
+                    </div>
+                    <div class="form-group"> 
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="margin-top-7 mb-0">Save as</p>
+                            </div>
+                            <div class="col-md-3 addirsst-crt-all">
+                                <div class="form-radio">
+                                    <div class="radio">
+                                        <input id="radio-1" name="radio" type="radio" checked>
+                                        <label for="radio-1" class="radio-label">Home</label>
+                                    </div>
+                                </div> 
+                            </div>
+                            <div class="col-md-3 addirsst-crt-all">
+                                <div class="form-radio">
+                                    <div class="radio">
+                                        <input id="radio-3" name="radio" type="radio" checked>
+                                        <label for="radio-3" class="radio-label">Female</label>
+                                    </div>
+                                </div> 
+                            </div>
+                            <div class="col-md-3 addirsst-crt-all">
+                                <div class="form-radio">
+                                    <div class="radio">
+                                        <input id="radio-11" name="radio" type="radio" checked>
+                                        <label for="radio-11" class="radio-label">Other</label>
+                                    </div>
+                                </div>  
+                            </div>
+                        </div>        
+                      </div>
+                     <button type="button" data-dismiss="modal"  class="profile-payment btn-green btn-block">Save</button>
+                  </form>
+                </div>
+            </div> 
+        </div>
+    </div>
+</div>

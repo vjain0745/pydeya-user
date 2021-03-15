@@ -1,0 +1,433 @@
+<app-header></app-header>
+
+<!-- Content -->
+<div id="content">
+    <section class="padding-top-30 padding-bottom-30">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
+                    <app-order-profile-left></app-order-profile-left>
+                </div>
+                <div class="col-md-9 col-lg-9 col-sm-12 col-xs-12">
+                    <div class="order-ecommerce-right bg-white">
+                        <div class="order-right-button">
+                                <button type="submit" class="mt-0 btn-gray btn-block order-right-margin1" routerLink="/ecommerce-order/my-ecommerce-order">Ecommerce / Grocery</button>
+                                <button type="submit" class="mt-0 btn-green btn-block" routerLink="/ecommerce-order/my-food-order">Food Ordering</button>
+                                <button type="submit" class="mt-0 btn-gray btn-block order-right-margin1" routerLink="/ecommerce-order/my-pharmacy-order">Pharmacy</button>
+                        </div>
+                        <div class="order-ecommerce-details">
+                            <div class="order-ecommerce-details-top">
+                                <ul>
+                                    <li class="fw-600"> <span class="margin-right-5">Order Id </span> #09034830</li>
+                                    <li>
+                                        <div class="">
+                                            <button type="submit" class="mt-0 order-help bg-success margin-right-5">Help</button>
+                                            <button id="notifyme" (click)="openOrder()" class="mt-0 order-help bg-theme">Track Order</button>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="order-ecommerce-details-middle">
+                                <div class="o-detail-main"> 
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                                <div class="margin-top-10">
+                                                    <div class="o-detail-img">
+                                                        <img src="assets/images/food.jpeg" class="img-responsive">
+                                                    </div>
+                                                </div>
+                                        </div>
+                                        <div class="col-md-10 margin-top-10"> 
+                                            <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="o-detail-details">
+                                                            <h6>
+                                                                Vivo U10 (Electric Blue, 5000 mAH 18W Fast Charge Battery, 3GB RAM, 32GB Storage)
+                                                            </h6>
+                                                            <p>3GB+32GB</p>
+                                                            <p>Appario Retail Private Ltd</p>
+                                                        </div>
+                                                    </div>
+                                                <div class="col-md-6">
+                                                    <div class="d-flex">
+                                                        <div class="margin-right-40">
+                                                            <h6 class="mb-0 mt-0 text-success">
+                                                                $15
+                                                            </h6> 
+                                                        </div>
+                                                        <div class="o-detail-details">
+                                                            <h6>
+                                                            Estimate Delivery
+                                                            </h6>
+                                                            <p>25 December 2019</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="o-detail-total">
+                                                        <ul>
+                                                            <li class="fw-600"> <span class="margin-right-5">Ordered On</span> Monday 15 December 2019</li>
+                                                            <li class="fw-600"> <span class="margin-right-5">Total</span> $ 150</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order-ecommerce-details">
+                            <div class="order-ecommerce-details-top">
+                                <ul>
+                                    <li class="fw-600"> <span class="margin-right-5">Order Id </span> #09034830</li>
+                                    <li>
+                                        <div>
+                                            <button class="mt-0 order-help bg-success margin-right-5">Help</button>
+                                            <button id="notifyme" (click)="openOrdercancl()" class="mt-0 order-help bg-theme">Track Order</button>
+                                        </div>
+                                    </li> 
+                                </ul>
+                            </div>
+                            <div class="order-ecommerce-details-middle">
+                                <div class="o-detail-main">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="margin-top-10">
+                                                <div class="o-detail-img">
+                                                    <img src="assets/images/food.jpeg" class="img-responsive">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-10 margin-top-10">  
+                                            <div class="row">
+                                                <div class="col-md-6"> 
+                                                    <div class="o-detail-details">
+                                                        <h6>
+                                                        Vivo U10 (Electric Blue, 5000 mAH 18W Fast Charge Battery, 3GB RAM, 32GB Storage)
+                                                        </h6>
+                                                        <p>3GB+32GB</p>
+                                                        <p>Appario Retail Private Ltd</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="d-flex">
+                                                        <div class="margin-right-40">
+                                                            <h6 class="mb-0 mt-0 text-success">
+                                                                $15
+                                                            </h6> 
+                                                        </div>
+                                                        <div class="o-detail-details">
+                                                            <h6>
+                                                            Estimate Delivery
+                                                            </h6>
+                                                            <p>25 December 2019</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="o-detail-total">
+                                                        <ul>
+                                                            <li class="fw-600"> <span class="margin-right-5">Ordered On</span> Monday 15 December 2019</li>
+                                                            <li class="fw-600"> <span class="margin-right-5">Total</span> $ 150</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order-ecommerce-details">
+                            <div class="order-ecommerce-details-top">
+                                <ul>
+                                    <li class="fw-600"> <span class="margin-right-5">Order Id </span> #09034830</li>
+                                    <li>
+                                        <div class="">
+                                            <button type="submit" class="mt-0 order-help bg-success margin-right-5">Help</button>
+                                            <button class="mt-0 order-help bg-theme">Track Order</button>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="order-ecommerce-details-middle">
+                                <div class="o-detail-main">
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                                <div class="margin-top-10">
+                                                    <div class="o-detail-img">
+                                                        <img src="assets/images/food.jpeg" class="img-responsive">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 margin-top-10"> 
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="o-detail-details">
+                                                            <h6> 
+                                                                Vivo U10 (Electric Blue, 5000 mAH 18W Fast Charge Battery, 3GB RAM, 32GB Storage)
+                                                            </h6>
+                                                            <p>3GB+32GB</p>
+                                                            <p>Appario Retail Private Ltd</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="d-flex">
+                                                            <div class="margin-right-40">
+                                                                <h6 class="mb-0 mt-0 text-success">
+                                                                    $15
+                                                                </h6> 
+                                                            </div>
+                                                            <div class="o-detail-details">
+                                                                <h6>
+                                                                Delivered On
+                                                                </h6>
+                                                                <p>25 December 2019</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="o-detail-total">
+                                                            <ul>
+                                                                <li class="fw-600"> <span class="margin-right-5">Ordered On</span> Monday 15 December 2019</li>
+                                                                <li class="fw-600"> <span class="margin-right-5">Total</span> $ 150</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        </div>
+    </section> 
+</div> 
+<app-footer></app-footer>    
+
+<div id="orderdetail" class="sidebar-bottom padding-0">
+    <a href="javascript:void(0)" id="close-bn" class="closebtn order-d-r" (click)="closeOrder()">
+        <img src="assets/images/icon/rightside_popup_crossicon.png" width="30px;">
+    </a>
+    <div class="my-order-d-inner">
+       <div class="row">
+           <div class="col-md-4"> 
+                 <div class="my-d-ord"> 
+                     <div class="my-d-ord-title">
+                         <ul>
+                             <li>
+                                 Order Id <span class="margin-left-5 fw-600 black">#Pyd436795</span>
+                             </li>
+                             <li> 
+                                INVOICE
+                             </li> 
+                         </ul>  
+                     </div>
+                     <div class="my-d-ord-stepprocess">
+                        <ul class="StepProgress">
+                            <li class="StepProgress-item is-done">
+                                <strong>Just Eat In</strong>
+                                Sector - 49
+                            </li>
+                            <li class="StepProgress-item current">
+                                <strong>Fluper</strong>
+                                C-142, Sector - 63, Noida, Uttar Pradesh 201309, Indi
+                            </li>
+                          </ul>
+                     </div>
+                 </div>
+           </div>
+           <div class="col-md-4">
+               <div class="bill-details">
+                    <h6 class="mt-0 fw-600 black fs-14">Bill Details</h6>
+                    <div class="bill-details-inner">
+                        <ul>
+                            <li>
+                                <div class="d-flex"> 
+                                     <div class="bill-img">
+                                         <img src="assets/images/food.jpeg" class="img-responsive">
+                                     </div>
+                                     <div class="bill-detail">
+                                         <h5>
+                                            Paneer Lababdar Half with Tandoori Roti
+                                         </h5>
+                                         <small>X3</small>
+                                     </div>
+                                </div>
+                            </li>
+                            <li>$5</li>
+                        </ul>
+                    </div>
+                    <div class="bill-det-border">
+                        <div class="bill-details-total">
+                            <ul>
+                                <li>    
+                                    <div class="bill-detail">
+                                        Total
+                                    </div>
+                                </li>
+                                <li class="black">$5</li>
+                            </ul>
+                        </div>
+                        <div class="bill-details-total1">
+                            <ul>
+                                <li>    
+                                     Delivery Fee
+                                </li>
+                                <li>$ 2</li>
+                            </ul>
+                        </div>
+                        <div class="bill-details-total1">
+                            <ul class="margin-bottom-10">
+                                <li>    
+                                    Discount Applied
+                                </li>
+                                <li>$2</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="bill-details-total border-bottom">
+                        <ul>
+                            <li>    
+                                <div class="bill-detail">
+                                    Pay Via Card
+                                </div>
+                            </li>
+                            <li class="black">$5</li>
+                        </ul>
+                    </div>
+                    <div class="bill-lst">
+                        <img src="assets/images/food.jpeg" class="img-responsive">
+                        <p>Delivered on Friday by Dan Berry</p>
+                    </div>
+               </div>
+           </div>
+           <div class="col-md-4">
+                <div class="bill-button"> 
+                     <div>
+                          <button  class="mt-0 bdr-btn bg-theme">Give Rating</button>
+                     </div>
+                     <div class="margin-top-25">
+                          <button  class="mt-0 order-help bg-theme">Reorder</button>
+                     </div>
+                </div>
+           </div>
+       </div>
+    </div>
+</div>
+ <div id="orderdetailcancl" class="sidebar-bottom padding-0"> 
+    <a href="javascript:void(0)" id="close-bn1" class="closebtn order-d-r" (click)="closeOrdercancl()">
+       <img src="assets/images/icon/rightside_popup_crossicon.png" width="30px;">
+    </a>
+    <div class="my-order-d-inner">
+       <div class="row">
+           <div class="col-md-4">
+                <div class="my-d-ord">
+                    <div class="my-d-ord-title">
+                        <ul>
+                            <li>
+                                Order Id <span class="margin-left-5 fw-600 black">#Pyd436795</span>
+                            </li>
+                            <li> 
+                                INVOICE
+                            </li> 
+                        </ul>  
+                    </div>
+                    <div class="my-d-ord-stepprocess">
+                    <ul class="StepProgress">
+                        <li class="StepProgress-item is-done">
+                            <strong>Just Eat In</strong>
+                            Sector - 49
+                        </li>
+                        <li class="StepProgress-item current">
+                            <strong>Fluper</strong>
+                            C-142, Sector - 63, Noida, Uttar Pradesh 201309, Indi
+                        </li>
+                    </ul>
+                    </div>
+                </div>
+           </div> 
+           <div class="col-md-4">
+               <div class="bill-details">
+                    <h6 class="mt-0 fw-600 black fs-14">Bill Details</h6>
+                    <div class="bill-details-inner">
+                        <ul>
+                            <li>
+                                <div class="d-flex"> 
+                                     <div class="bill-img">
+                                         <img src="assets/images/food.jpeg" class="img-responsive">
+                                     </div>
+                                     <div class="bill-detail">
+                                         <h5>
+                                            Paneer Lababdar Half with Tandoori Roti
+                                         </h5>
+                                         <small>X3</small>
+                                     </div>
+                                </div>
+                            </li>
+                            <li>$5</li>
+                        </ul>
+                    </div>
+                    <div class="bill-det-border">
+                        <div class="bill-details-total">
+                            <ul>
+                                <li>    
+                                    <div class="bill-detail">
+                                        Total
+                                    </div>
+                                </li>
+                                <li class="black">$5</li>
+                            </ul>
+                        </div>
+                        <div class="bill-details-total1">
+                            <ul>
+                                <li>    
+                                    Delivery Fee
+                                </li>
+                                <li>$ 2</li>
+                            </ul>
+                        </div>
+                        <div class="bill-details-total1">
+                            <ul class="margin-bottom-10">
+                                <li>    
+                                    Discount Applied
+                                </li>
+                                <li>$2</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="bill-details-total border-bottom">
+                        <ul>
+                            <li>    
+                                <div class="bill-detail">
+                                    Pay Via Card
+                                </div>
+                            </li>
+                            <li class="black">$5</li>
+                        </ul>
+                    </div>
+                    <div class="bill-lst">
+                        <img src="assets/images/food.jpeg" class="img-responsive">
+                        <p class="red">Cancelled on Friday by delivery boy Raj Kumar</p>
+                    </div>
+               </div>
+           </div>
+           <div class="col-md-4">
+                <div class="bill-button"> 
+                     <div>
+                        <button  class="mt-0 bdr-btn bg-theme">Give Rating</button>
+                     </div>
+                     <div class="margin-top-25">
+                        <button  class="mt-0 order-help bg-theme">Reorder</button>
+                     </div>
+                </div>
+           </div>
+       </div>
+    </div>
+</div>
+ 
+

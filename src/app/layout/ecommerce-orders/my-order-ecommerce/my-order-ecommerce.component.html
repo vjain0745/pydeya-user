@@ -1,0 +1,267 @@
+<app-header></app-header>
+
+<!-- Content -->
+ <div id="content">
+        <section class="padding-top-30 padding-bottom-30">
+                <div class="container">
+                  <div class="row">
+                       <!-- <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
+                            <app-order-profile-left></app-order-profile-left>
+                       </div> -->
+                       <div class="col-md-9 col-lg-12 col-sm-12 col-xs-12">
+                            <div class="order-ecommerce-right bg-white">
+                                    <div class="order-right-button">
+                                        <button type="submit" class="mt-0 btn-green btn-block order-right-margin1" routerLink="/ecommerce-order/my-ecommerce-order">Ecommerce / Grocery</button>
+                                        <button type="submit" class="mt-0 btn-gray btn-block" routerLink="/ecommerce-order/my-food-order">Food Ordering</button>
+                                        <button type="submit" class="mt-0 btn-gray btn-block order-right-margin1" routerLink="/ecommerce-order/my-pharmacy-order">Pharmacy</button>
+                                    </div>
+
+                                    <button (click)='filterorders("ongoingOrders")'> Ongoing</button>
+                                    <button (click)='filterorders("cancelledOrders")'> Cancelled</button>
+                                    <button (click)='filterorders("completedOrders")'> Completed</button>
+
+
+                                    <div class="order-ecommerce-details" *ngFor='let ongoing of allorders'>
+                                          <div class="order-ecommerce-details-top">
+                                               <ul>
+                                                   <li class="fw-600"> <span class="margin-right-5">Order Id </span> {{ongoing?._id}}</li>
+                                                   <li>
+                                                       <div class="">
+                                                            <!-- <button data-target="#help" data-toggle="modal" class="mt-0 order-help bg-success margin-right-5">Help</button> -->
+                                                            <button routerLink="/ecommerce-order/my-order-status/{{ongoing?._id}}" class="mt-0 order-help bg-theme">Track Order</button>
+                                                       </div>
+                                                    </li>
+                                               </ul>
+                                          </div>
+                                          <div class="order-ecommerce-details-middle" routerLink="/ecommerce-order/my-order-status/{{ongoing?._id}}">
+                                              <div class="o-detail-main">
+                                                    <div class="row">
+                                                        <div class="col-md-2">
+                                                             <div class="margin-top-10">
+                                                                    <div class="o-detail-img">
+                                                                        <img [src]="url+ongoing?.product_id.product_image" class="img-responsive">
+                                                                    </div>
+                                                             </div>
+                                                        </div>
+                                                        <div class="col-md-10 margin-top-10"> 
+                                                            <div class="row">
+                                                                 <div class="col-md-6">
+                                                                        <div class="o-detail-details">
+                                                                            <h6>
+                                                                            {{ongoing?.product_id.product_name}}
+                                                                            </h6>
+                                                                            <p>{{ongoing?.product_id.description}} </p>
+                                                                            <!-- <p>Appario Retail Private Ltd</p> -->
+                                                                        </div>
+                                                                 </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="d-flex">
+                                                                        <div class="margin-right-40">
+                                                                            <h6 class="mb-0 mt-0 text-success">
+                                                                                ${{ongoing?.amount}}
+                                                                            </h6> 
+                                                                        </div>
+                                                                        <div class="o-detail-details">
+                                                                            <h6>
+                                                                            Estimate Delivery
+                                                                            </h6>
+                                                                            <p>{{ongoing?.createdAt | date : 'medium'}}</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    <div class="o-detail-total">
+                                                                        <ul>
+                                                                            <li class="fw-600"> <span class="margin-right-5">Ordered On</span>{{ongoing?.createdAt | date : 'medium'}}</li>
+                                                                            <li class="fw-600"> <span class="margin-right-5">Total</span>${{ongoing?.amount}}</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                          
+                                                        </div>
+                                                    </div>
+                                              </div>
+                                          </div>
+                                    </div>
+                               
+                            </div>
+
+                      </div>
+                  </div>  
+                </div>
+        </section> 
+ </div>
+<app-footer></app-footer>    
+
+<div class="modal fade" id="help">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header border-bottom">
+                <h6 class="d-content  fw-600 margin-top-0 fs-13 mb-13">Help</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                    <form>
+                    <div class="form-group"> 
+                        <h6 class="fs-16 margin-bottom-5">Help With The Order </h6> 
+                        <div class="my-order-help">
+                            <ul>
+                                <li>
+                                    <label class="container_check">
+                                        <input type="checkbox" name="test_id" data-name="Skull" value="1" id="test_id" class="checkbbbb">
+                                         <span class="checkmark checkmark-tst"></span>
+                                         Where is my order?
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="container_check">
+                                        <input type="checkbox" name="test_id" data-name="Skull" value="1" id="test_id" class="checkbbbb">
+                                         <span class="checkmark checkmark-tst"></span>
+                                         Where is my order?
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="container_check">
+                                        <input type="checkbox" name="test_id" data-name="Skull" value="1" id="test_id" class="checkbbbb">
+                                         <span class="checkmark checkmark-tst"></span>
+                                         I have Payment and Coupon related issue
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="container_check">
+                                        <input type="checkbox" name="test_id" data-name="Skull" value="1" id="test_id" class="checkbbbb">
+                                         <span class="checkmark checkmark-tst"></span>
+                                         Wrong item delivered or item missing
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="container_check">
+                                        <input type="checkbox" name="test_id" data-name="Skull" value="1" id="test_id" class="checkbbbb">
+                                         <span class="checkmark checkmark-tst"></span>
+                                         My order not confirmed by restaurent
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="form-group"> 
+                        <h6 class="fs-16 margin-bottom-5 margin-top-0">Order Cancellation </h6> 
+                        <div class="my-order-help">
+                            <ul>
+                                <li>
+                                    <label class="container_check">
+                                        <input type="checkbox" name="test_id" data-name="Skull" value="1" id="test_id" class="checkbbbb">
+                                         <span class="checkmark checkmark-tst"></span>
+                                         User needs to provide reason
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <button type="button" data-dismiss="modal"  class="profile-payment btn-green btn-block">Cancel Order</button>
+                  </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="Cancellation">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header border-bottom">
+                <h6 class="d-content  fw-600 margin-top-0 fs-13 mb-13">Cancellation</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                    <form>
+                    <div class="form-group"> 
+                        <h6 class="fs-16 margin-bottom-5">Help With The Order </h6> 
+                        <div class="my-order-help">
+                            <ul>
+                                <li>
+                                    <div class="addirsst-crt-all">
+                                        <div class="form-radio">
+                                            <div class="radio">
+                                                <input id="radio14" name="radio" type="radio" checked>
+                                                <label for="radio-14" class="radio-label">
+                                                    I entered wrong address
+                                                </label>
+                                            </div>
+                                        </div> 
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="addirsst-crt-all">
+                                        <div class="form-radio">
+                                            <div class="radio">
+                                                <input id="radio14" name="radio" type="radio" checked>
+                                                <label for="radio-14" class="radio-label">
+                                                    Ordered wrong item
+                                                </label>
+                                            </div>
+                                        </div> 
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="addirsst-crt-all">
+                                        <div class="form-radio">
+                                            <div class="radio">
+                                                <input id="radio14" name="radio" type="radio" checked>
+                                                <label for="radio-14" class="radio-label">
+                                                    Want to add more items
+                                                </label>
+                                            </div>
+                                        </div> 
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="addirsst-crt-all">
+                                        <div class="form-radio">
+                                            <div class="radio">
+                                                <input id="radio14" name="radio" type="radio" checked>
+                                                <label for="radio-14" class="radio-label">
+                                                    Ordered my mistake
+                                                </label>
+                                            </div>
+                                        </div> 
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="addirsst-crt-all">
+                                        <div class="form-radio">
+                                            <div class="radio">
+                                                <input id="radio14" name="radio" type="radio" checked>
+                                                <label for="radio-14" class="radio-label">
+                                                    Cancel Reason 1
+                                                </label>
+                                            </div>
+                                        </div> 
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="addirsst-crt-all">
+                                        <div class="form-radio">
+                                            <div class="radio">
+                                                <input id="radio14" name="radio" type="radio" checked>
+                                                <label for="radio-14" class="radio-label">
+                                                    Cancel Reason 2
+                                                </label>
+                                            </div>
+                                        </div> 
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <button type="button" data-dismiss="modal" class="profile-payment btn-green btn-block">Confirm</button>
+                  </form>
+            </div>
+        </div>
+    </div>
+</div>
+

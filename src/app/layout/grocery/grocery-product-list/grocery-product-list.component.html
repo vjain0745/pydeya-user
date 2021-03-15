@@ -1,0 +1,241 @@
+<app-header></app-header>
+<div id="content" class="padding-top-30 padding-bottom-30"> 
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="order-ecommerce-left-product1 bg-white">
+          <div class="p-grid-list-left">
+               <div class="pgl-title border-bottom">
+                   <h6 class="fw-600">Popular Products</h6>
+               </div>
+               <div class="pgl-category">
+                  <main class="cd-main-content">
+                      <div class="cd-filter"> 
+                          <form>
+                            <div class="groc-category-name">
+                                <ul>
+                                    <li><a> Tea<i class="fa fa-angle-right float-right"></i></a></li>
+                                    <li><a>Chips<i class="fa fa-angle-right float-right"></i></a></li>
+                                    <li><a>Coffee<i class="fa fa-angle-right float-right"></i></a></li>
+                                    <li><a>Pluses<i class="fa fa-angle-right float-right"></i></a></li>
+                                    <li><a> Atta & Other Flours<i class="fa fa-angle-right float-right"></i></a></li>
+                                    <li><a>Rice & Other Grains<i class="fa fa-angle-right float-right"></i></a></li>
+                                    <li><a>Edible Oils<i class="fa fa-angle-right float-right"></i></a></li>
+                                    <li><a>Spices<i class="fa fa-angle-right float-right"></i></a></li>
+                                    <li><a>Salt & Sugar<i class="fa fa-angle-right float-right"></i></a></li>
+                                    <li><a>Fruits<i class="fa fa-angle-right float-right"></i></a></li>
+                                    <li><a>Vegetables<i class="fa fa-angle-right float-right"></i></a></li>
+                                    <li><a>Ghee & Vanaspati<i class="fa fa-angle-right float-right"></i></a></li>
+                                  </ul>
+                            </div> 
+                          </form>
+                      </div> <!-- cd-filter -->
+                  </main> <!-- cd-main-content -->
+               </div>
+          </div>
+      </div>
+      </div>
+      <div class="col-md-9">
+        <section class="bg-white padding-top-20 padding-bottom-30 top-brand relative">
+            <div class="col-md-12">
+                <div class="flex-head">
+                  <div class="groc-heading">
+                       <h6>{{catdata}}</h6> 
+                  </div>
+                </div>
+            </div>
+
+            <div class="col-md-3" *ngFor="let products of allproduct">
+                <div class="groc-product margin-bottom-20"> 
+                    <a href="javascript:void(0);">
+                      <div class="groc-brands"> 
+                        <div class="brand-img text-center">
+                            <img class="img-responsive" [src]="baseurl+products?.product_image"> 
+                            <img src="assets/images/icon/heart_unfillicon.png" width="10px" class="img-responsive groc-geart"> 
+                        </div>
+                        <div class="grac-logo">
+                            <div class="groc-logo-title">
+                                <h6>{{products?.product_name}}</h6>
+                            </div>  
+                            <div class="groc-off">
+                                <ul>
+                                    <li>
+                                      <p> <span class="text-success">&nbsp;$ {{products?.product_array[0]?.offer_price}}&nbsp;&nbsp;</span><del>$ {{products.product_array[0].price}}</del></p>
+                                    </li>
+                                    <li>
+                                        <h6>{{(products?.product_array[0]?.price - products.product_array[0]?.offer_price) / products?.product_array[0]?.offer_price * 100 | number: '1.2-2'}} %</h6>
+                                    </li>
+                                </ul>
+                            </div>  
+                            <div class="groc-button text-center margin-bottom-10">
+                                <a  data-target="#view-product" data-toggle="modal" (click)="selectedProduct(products)">Add Item</a>
+                            </div>
+                            <div class="groc-button text-center">
+                                    
+                            </div>
+                        </div>
+                      </div>
+                    </a>  
+                  </div>
+            </div>
+
+        </section> 
+        
+        <div class=""> 
+            <button data-target="#view-address" data-toggle="modal" (click)="cartdata()">cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+
+
+<app-footer></app-footer>   
+
+<div class="modal fade" id="view-product">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-body">
+            <div class="modal-header modal-header1">
+                <button type="button" data-dismiss="modal" aria-label="Close" class="close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+             <div class="viewgroc-pro-img">
+                <img class="viewgroc-pro-img1 img-responsive"[src]="baseurl+productdetails?.product_image"> 
+                <img src="assets/images/icon/heart_unfillicon.png" width="10px" class="img-responsive groc-geart-icon"> 
+   
+            </div>
+             <div class="viewgroc-pro-title">
+                    <ul>
+                        <li>
+                            <div class="grocs-cat">
+                                 <h6>{{productdetails?.product_name}}</h6>
+                                 <p>
+                                     <span class="text-success">$ {{productdetails?.product_array[0]?.offer_price}}&nbsp;</span>
+                                     <del>$ {{productdetails?.product_array[0]?.price}}</del> 
+                                     <span class="text-success fw-600">&nbsp;&nbsp;
+                                         {{(productdetails?.product_array[0]?.price - productdetails?.product_array[0]?.offer_price) / productdetails?.product_array[0]?.offer_price * 100 | number: '1.2-2'}}
+                                            % OFF</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="groc-selet d-flex">
+                                <select class="form-control">
+                                    <option>1 kg</option>
+                                    <option>2 kg</option>
+                                    <option>3 kg</option>
+                                    <option>4 kg</option>
+                                </select>
+                                <div class="box-qty groc-qty">
+                                    <button class="quantity-minus" (click)="sub()">-</button>
+                                    <span style="margin:0px 7px;">{{updatevalueinmodal ? updatevalueinmodal : 0}}</span>
+                                    <button class="quantity-plus"  (click)="add()">+</button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+             </div> 
+             <div class="viewgroc-pro-detail">
+                 <div class="viewgroc-pro-unt">
+                    <h6>Product Detail</h6>
+                    <p>Unit <span>1</span></p>
+                 </div>
+                 <!-- <div class="view-groc-storge">
+                     <h6>Storage</h6>
+                     <p>Lorem ipsum is dummy text</p>
+                 </div> -->
+                 <div class="view-groc-desc">
+                    <h6>Description</h6>
+                    <p>{{productdetails?.description}}</p>
+                </div>
+            </div>
+            <!-- <div class="groc-sub-btn">
+                <button (click)='submitproduct()' class="btn">Submit</button>
+            </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="view-address">
+        <div class="modal-dialog modal-lg1">
+          <div class="modal-content">
+            <div class="modal-body">
+                <div class="modal-header modal-header1">
+                    <button type="button" data-dismiss="modal" aria-label="Close" class="close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="gros-add-all">
+                            <div class="gros-address-title">
+                                <h6 class="margin-bottom-20">Add Address</h6>
+                           </div>
+                           <div class="gros-add-overview" *ngFor="let catData of allcartData ; let i = index">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="d-flex">
+                                             <div class="gross-pro-img">
+                                                <img class="img-responsive" width="50px" height="50px" src="assets/images/fos1.jpg"> 
+                                             </div>
+                                             <div class="gross-pro-det">
+                                                 <h6 class="black">{{catData.name}}</h6>
+                                                    <p> 
+                                                       {{catData.amount}}
+                                                        <!-- <del class="margin-left-5 g-gray"> Rs.2,00</del> -->
+                                                        <!-- <span class="margin-left-15 text-success fw-600">30 % &nbsp;</span> -->
+                                                    </p>
+                                             </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="groc-add-qt">
+                                            <div class="box-qty groc-qty basket-groc-qty">
+                                                <button class="quant-minus" (click)="subquant(catData)">-</button>
+                                                <span style="margin:0px 7px;">{{catData?.quantity}}</span>
+                                                <button class="quant-plus"  (click)="addquant(catData)" >+</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                           </div>
+     
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                           <div class="groc-price-details">
+                                <div class="gros-address-title">
+                                    <h6 class="margin-bottom-20">Price Details</h6>
+                                </div>
+                                <div class="groc-price-detail-all">
+                                    <ul>
+                                        <li>Price ( 6 Items )</li>
+                                        <li>{{pricing?.price}}</li>
+                                        <li>Delivery Charges</li>
+                                        <li>{{pricing?.shipping_charge}}</li>
+                                        <li>Discount</li>
+                                        <li>$ 0</li>
+                                    </ul>
+                                </div>
+                                <div class="groc-price-detail-totl">
+                                    <ul>
+                                        <li>Total Payable</li>
+                                        <li>{{pricing?.final_price}}</li>
+                                    </ul>
+                                </div>
+                                <small class="g-gray">You will save Rs 150 on this order</small>
+                                <div class="margin-top-15 groc-sub-btn">
+                                    <button (click)="placeorder()" class="btn">Place Order</button>
+                                </div>
+                           </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>

@@ -1,0 +1,214 @@
+<app-header></app-header>
+<!-- Content -->
+ <div id="content">
+        <section class="padding-top-20 padding-bottom-30">
+                <div class="container">
+                    <div class="row padding-bottom-20">
+                        <div class="col-md-6">
+                            <h5 class="fw-600 mt-0 mb-0">Product List</h5> 
+                        </div> 
+                        <div class="col-md-6"> 
+                            <div class="product-list-grid"> 
+                                 <a routerLink="/product/product-list" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+                                    true}" class="margin-right-10"><i class="fa fa-list margin-right-5" aria-hidden="true"></i> List</a> 
+                                 <a routerLink="/product/product-grid" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+                                    true}"><i class="fa fa fa-th margin-right-5" aria-hidden="true"></i> Grid</a> 
+                            </div>
+                        </div>
+                    </div>
+                  <div class="row">
+                       <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
+                           <app-productlistgrid-left></app-productlistgrid-left>
+                       </div>
+                       <div class="col-md-9 col-lg-9 col-sm-12 col-xs-12">
+                           <div class="bg-white">
+                                <div class="product-sort border-bottom">
+                                    <ul>
+                                        <li><a class="fw-600">Sort by</a></li>
+                                        <li><a>Relevance</a></li>
+                                        <li><a>Popularity</a></li>
+                                        <li><a>Popularity</a></li>
+                                        <li (click) = "filterProduct(1)"><a>Price--Low to High</a></li>
+                                        <li (click) = "filterProduct(2)"><a>Price--High to Low</a></li>
+                                        <li (click) = "filterProduct(3)"><a>Newest First</a></li>
+                                    </ul>
+                                </div>
+                                <div class="product-item"> 
+                                    <div class="product-list-view" *ngFor = "let data of productData">
+                                        <div class="row">
+                                        <div class="col-md-5"> 
+                                            <div class="product-grid-img">  
+                                                <a [routerLink] = "['/product/product-details', data._id]">
+                                                <img [src]="imgUrl+data.product_image" class="img-responsive">
+                                                </a>
+                                                <div class="list-icon">
+                                                    <img src="assets/images/icon/heart_fillicon.png" width="10px" class="img-responsive">
+                                                </div>
+                                                <div> 
+                                                    <small class="list-off">{{data.discount_percentage}} % OFF</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <div class="product-grid-details">
+                                                <div class="product-grid-titile">
+                                                    <h6>
+                                                        {{data.product_name}}
+                                                    </h6>
+                                                </div>
+                                                <div class="product-star">
+                                                    <i class="fa fa-star"></i> 4.5
+                                                </div>
+                                                <div class="grid-all-details"> 
+                                                    <ul>
+                                                        <li>
+                                                            <div class="">
+                                                                <p>Effective Pixels: 24.1 MP <span class="float-right fw-600 light-color">Rs {{data.mrp}}</span></p>
+                                                            </div>
+                                                        </li>
+                                                        <li>  
+                                                            <div class="">
+                                                                <p>Sensor Type:COMS <span class="float-right fw-600 dark-color">RS {{data.sellingPrice}}</span></p>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class=""> 
+                                                                <p>WiFi Availble <small class="yellow fw-600 float-right">in Stock</small></p>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="">
+                                                                <p>1080p recoreding at 4p</p>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="">
+                                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam aliquid, sed laboriosam totam neque nobis fugit possimus</p>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <!-- <div class="product-list-view">
+                                            <div class="row">
+                                            <div class="col-md-5"> 
+                                                <div class="product-grid-img">  
+                                                    <img src="assets/images/feture-item-2.png" class="img-responsive">
+                                                    <div class="list-icon">
+                                                        <img src="assets/images/icon/heart_fillicon.png" width="10px" class="img-responsive">
+                                                    </div>
+                                                    <div> 
+                                                        <small class="list-off">21 % OFF</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-7">
+                                                <div class="product-grid-details">
+                                                    <div class="product-grid-titile">
+                                                        <h6>
+                                                            Canon EOS 1500D DSLR Camera Body Dual kit with EF-S 18-55 IS II + 55-250 IS II lens (16 GB Memory Card...
+                                                        </h6>
+                                                    </div>
+                                                    <div class="product-star">
+                                                        <i class="fa fa-star"></i> 4.5
+                                                    </div>
+                                                    <div class="grid-all-details">
+                                                        <ul>
+                                                            <li>
+                                                                <div class="">
+                                                                    <p>Effective Pixels: 24.1 MP <span class="float-right fw-600 light-color">Rs 43200</span></p>
+                                                                </div>
+                                                            </li>
+                                                            <li>  
+                                                                <div class="">
+                                                                    <p>Sensor Type:COMS <span class="float-right fw-600 dark-color">RS 30000</span></p>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class=""> 
+                                                                    <p>WiFi Availble <small class="yellow fw-600 float-right">in Stock</small></p>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="">
+                                                                    <p>1080p recoreding at 4p</p>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="">
+                                                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam aliquid, sed laboriosam totam neque nobis fugit possimus</p>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                        <div class="product-list-view">
+                                                <div class="row">
+                                                <div class="col-md-5"> 
+                                                    <div class="product-grid-img">  
+                                                        <img src="assets/images/feture-item-2.png" class="img-responsive">
+                                                        <div class="list-icon">
+                                                            <img src="assets/images/icon/heart_fillicon.png" width="10px" class="img-responsive">
+                                                        </div>
+                                                        <div> 
+                                                            <small class="list-off">21 % OFF</small>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <div class="product-grid-details">
+                                                        <div class="product-grid-titile">
+                                                            <h6>
+                                                                Canon EOS 1500D DSLR Camera Body Dual kit with EF-S 18-55 IS II + 55-250 IS II lens (16 GB Memory Card...
+                                                            </h6>
+                                                        </div>
+                                                        <div class="product-star">
+                                                            <i class="fa fa-star"></i> 4.5
+                                                        </div>
+                                                        <div class="grid-all-details">
+                                                            <ul>
+                                                                <li>
+                                                                    <div class="">
+                                                                        <p>Effective Pixels: 24.1 MP <span class="float-right fw-600 light-color">Rs 43200</span></p>
+                                                                    </div>
+                                                                </li> 
+                                                                <li>  
+                                                                    <div class="">
+                                                                        <p>Sensor Type:COMS <span class="float-right fw-600 dark-color">RS 30000</span></p>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <div class=""> 
+                                                                        <p>WiFi Availble <small class="yellow fw-600 float-right">in Stock</small></p>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <div class="">
+                                                                        <p>1080p recoreding at 4p</p>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <div class="">
+                                                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam aliquid, sed laboriosam totam neque nobis fugit possimus</p>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            </div> -->
+                                </div>
+                           </div>
+                      </div>
+                  </div>  
+                </div>
+        </section> 
+ </div>
+<app-footer></app-footer>    

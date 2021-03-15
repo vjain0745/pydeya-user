@@ -1,0 +1,278 @@
+<app-header></app-header>
+
+<!-- Content -->
+ <div id="content">
+    <section class="padding-top-30 padding-bottom-30">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
+                    <app-order-profile-left></app-order-profile-left>
+                </div> 
+                <div class="col-md-9 col-lg-9 col-sm-12 col-xs-12">
+                    <div class="order-ecommerce-right bg-white"> 
+                        <div class="order-map">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.515046243445!2d77.38453251508219!3d28.614321882424967!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cef2b5cd9a085%3A0xbb9d9da12a501a50!2sFluper%20-%20App%20Development%20Company!5e0!3m2!1sen!2sin!4v1585639998429!5m2!1sen!2sin" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0">
+                            </iframe>
+                        </div>
+                        <div class="order-status-main">
+                            <div class="order-status-title">
+                                <h3>Order Status</h3>
+                            </div>
+                            <div class="status-all">
+                                 <ul>
+                                    <li>
+                                        <div [ngClass]="(trackData?.order_accepted_by_provider == '0')? 'statis' : 'statis active'">
+                                            <div class="status-dot"></div>
+                                            <div class="status-icon">
+                                                <img src="assets/images/icon/order_delivered_active.png" class="img-responsive">
+                                                <!-- <img src="assets/images/icon/order_delivered_deactive.png" class="img-responsive"> -->
+                                            </div>
+                                            <div class="order-h">
+                                                <h6>Order Received</h6>
+                                            </div>
+                                            <div class="status-btn">
+                                                <button>DONE</button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div [ngClass]="(trackData?.order_ready == '0')? 'statis' : 'statis active'">
+                                            <div class="status-dot"></div>
+                                            <div class="status-icon">
+                                                <img src="assets/images/icon/order_packed_active.png" class="img-responsive">
+                                                <!-- <img src="assets/images/icon/order_packed_deactive.png" class="img-responsive"> -->
+                                            </div>
+                                            <div class="order-h">
+                                                <h6>Order is being Packed</h6>
+                                            </div>
+                                            <div class="status-btn">
+                                                <button>DONE</button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div [ngClass]="(trackData?.delivery_boy_assigned == '0')? 'statis' : 'statis active'">
+                                            <div class="status-dot"></div>
+                                            <div class="status-icon">
+                                                <img src="assets/images/icon/deliveryboy_assign_active.png" class="img-responsive">
+                                                <!-- <img src="assets/images/icon/deliveryboy_assign_deactive.png" class="img-responsive"> -->
+                                            </div>
+                                            <div class="order-h">
+                                                <h6>Delivery Boy Assigned</h6>
+                                            </div>
+                                            <div class="status-btn">
+                                                <button>DONE</button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div [ngClass]="(trackData?.delivery_partner_reached_business == '0')? 'statis' : 'statis active'">
+                                            <div class="status-dot"></div>
+                                            <div class="status-icon">
+                                                <img src="assets/images/icon/deliveryonrout_active.png" class="img-responsive">
+                                                <!-- <img src="assets/images/icon/deliveryonrout_deactive.png" class="img-responsive"> -->
+                                            </div>
+                                            <div class="order-h">
+                                                <h6>On Route to Bussiness/Merchant</h6>
+                                             </div>
+                                            <div class="status-btn">
+                                                <button>DONE</button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div [ngClass]="(trackData?.order_picked == '0')? 'statis' : 'statis active'">
+                                            <div class="status-dot"></div>
+                                            <div class="status-icon">
+                                                <img src="assets/images/icon/orderpick_active.png" class="img-responsive">
+                                                <!-- <img src="assets/images/icon/orderpick_deactive.png" class="img-responsive"> -->
+                                            </div>
+                                            <div class="order-h">
+                                                <h6>Order Pickup</h6>
+                                            </div>
+                                            <div class="status-btn">
+                                                <button>DONE</button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div [ngClass]="(trackData?.delivery_partner_reached_customer == '0')? 'statis' : 'statis active'">
+                                            <div class="status-dot"></div>
+                                            <div class="status-icon">
+                                                <!-- <img src="assets/images/icon/delvryboy_onroute_active.png" class="img-responsive"> -->
+                                                <img src="assets/images/icon/delvryboy_onroute_deactive.png" class="img-responsive">
+                                            </div>
+                                            <div class="order-h">
+                                                 <h6>On Route to Delivery Location</h6>
+                                            </div>
+                                            <div class="status-btn">
+                                                <button>DONE</button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                            <div [ngClass]="(trackData?.delivered == '0')? 'statis' : 'statis active'">
+                                                <div class="status-dot"></div>
+                                            <div class="status-icon">
+                                                <!-- <img src="assets/images/icon/orderpick_active.png" class="img-responsive"> -->
+                                                <img src="assets/images/icon/orderpick_deactive.png" class="img-responsive">
+                                            </div>
+                                            <div class="order-h"> 
+                                                <h6>Order Delivered</h6>
+                                            </div>
+                                            <div class="status-btn">
+                                                <button>DONE</button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                 </ul>
+                            </div>
+                        </div> 
+                        <div class="your-order-dtl">
+                            <div class="order-ecommerce-details-top">
+                                <ul>
+                                    <li class="fw-600">
+                                        <h6>Your Order Details</h6>  
+                                         <p>
+                                            <span class="margin-right-5">Order Id </span> #{{path}}
+                                         </p>
+                                    </li>
+                                    <li>
+                                        <div class="">
+                                            <button data-target="#help" data-toggle="modal" class="mt-0 order-help bg-success margin-right-5">Help</button>
+                                            <button type="submit" class="mt-0 order-help bg-theme">Share</button>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="delivery-address border-bottom">
+                                <h6>Delivery Address</h6>
+                                <p>
+                                    {{delivery_address?.name}}<br>
+                                    {{delivery_address?.house_no}} &nbsp;{{delivery_address?.city}}&nbsp;{{delivery_address?.state}}&nbsp;{{delivery_address?.pin}}<br>
+                                    Mobile No- {{delivery_address?.contact_number}}<br>
+                                </p>
+                            </div>
+                            <div class="delivery-address border-bottom">
+                                 <h6>Items</h6>
+                                  <div class="row">
+                                      <div class="col-md-2">
+                                            <div class="o-detail-img-item">
+                                                <img [src]="url + values?.product_id?.product_image" class="img-responsive">
+                                            </div>
+                                      </div>
+                                      <div class="col-md-10">
+                                            <div class="deli-item">
+                                                <h6> {{values?.product_id?.product_name}}</h6>
+                                            </div>
+                                            <div class="deli-item">
+                                                <ul>
+                                                    <!-- <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit</li>
+                                                    <li>$5</li> -->
+                                                </ul>
+                                            </div>
+                                      </div>
+                                  </div>  
+                            </div>
+                            <div class="delivery-address deli-payment-detail border-bottom">
+                                <h6>Payment Details</h6>
+                                 <ul>
+                                      <li>Payment Mode</li>
+                                      <li>Cash On Delivery</li>
+                                      <li>Total MRP</li>
+                                      <li>$ {{values?.amount}}</li>
+                                      <li>Discount</li>
+                                      <li>$0</li>
+                                      <li>Delivery Charge</li>
+                                      <li>$ 50</li>
+                                 </ul>
+                            </div>
+                            <div class="delivery-address deli-payment-total border-bottom">
+                                <ul>
+                                    <li>Total</li>
+                                    <li>${{values?.amount}}</li>
+                                </ul>
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+            </div>  
+        </div>
+    </section> 
+ </div>
+<app-footer></app-footer>    
+
+
+<div class="modal fade" id="help">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header border-bottom">
+                <h6 class="d-content  fw-600 margin-top-0 fs-13 mb-13">Help</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                    <form>
+                    <div class="form-group"> 
+                        <h6 class="fs-16 margin-bottom-5">Help With The Order </h6> 
+                        <div class="my-order-help">
+                            <ul>
+                                <li>
+                                    <label class="container_check">
+                                        <input type="checkbox" name="test_id" (change)="checkValue($event)" data-name="Skull" value="Where is my order?" id="test_id" class="checkbbbb">
+                                         <span class="checkmark checkmark-tst"></span>
+                                         Where is my order?
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="container_check">
+                                        <input type="checkbox" name="test_id" (change)="checkValue($event)" data-name="Skull" value="Where is my order?" id="test_id1" class="checkbbbb">
+                                         <span class="checkmark checkmark-tst"></span>
+                                         Where is my order?
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="container_check">
+                                        <input type="checkbox" name="test_id" (change)="checkValue($event)" data-name="Skull" value="I have Payment and Coupon related issue" id="test_id" class="checkbbbb">
+                                         <span class="checkmark checkmark-tst"></span>
+                                         I have Payment and Coupon related issue
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="container_check">
+                                        <input type="checkbox" name="test_id" (change)="checkValue($event)" data-name="Skull" value="Wrong item delivered or item missing" id="test_id" class="checkbbbb">
+                                         <span class="checkmark checkmark-tst"></span>
+                                         Wrong item delivered or item missing
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="container_check">
+                                        <input type="checkbox" name="test_id" (change)="checkValue($event)" data-name="Skull" value="My order not confirmed by restaurent" id="test_id" class="checkbbbb">
+                                         <span class="checkmark checkmark-tst"></span>
+                                         My order not confirmed by restaurent
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- <div class="form-group"> 
+                        <h6 class="fs-16 margin-bottom-5 margin-top-0">Order Cancellation </h6> 
+                        <div class="my-order-help">
+                            <ul>
+                                <li>
+                                    <label class="container_check">
+                                        <input type="checkbox" name="test_id" data-name="Skull" value="1" id="test_id" class="checkbbbb">
+                                         <span class="checkmark checkmark-tst"></span>
+                                         User needs to provide reason
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div> -->
+                    <button type="button" data-dismiss="modal" (click)='cancelOrder()' class="profile-payment btn-green btn-block">Cancel Order</button>
+                  </form>
+            </div>
+        </div>
+    </div>
+</div>

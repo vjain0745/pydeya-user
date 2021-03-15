@@ -1,0 +1,46 @@
+<div class="order-ecommerce-left-profile bg-white">
+    <div class="order-profile">
+        <div class="profilPic">   
+            <div class="img mb-2">    
+                    <img [src]="profileImgURL" *ngIf="profileImgURL"/>   
+                    <img src="assets/images/icon/creatprfl_deflimg.png" class="pointer img-responsive" *ngIf="!profileImgURL"/>
+                    <label for="file-input" class="abs-profile">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </label> 
+                    <input type="file" #file accept='image/*' id="file-input" class="d-none" (change)="profileImg(file.files)"/> 
+            </div> 
+        </div>      
+        <div class="order-profile-title">  
+            <h6 class="theme-color">Rahul Sharma</h6>
+            <p class="mb-0">987654321</p>         
+        </div> 
+    </div>
+    <div class="order-profile-tabs"> 
+        <ul>
+            <li routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+                true}" routerLink="/ecommerce-order/my-order-status">
+                <img src="assets/images/icon/profile_myorders_deactive.png" class="img-responsive margin-right-5">&nbsp; My Orders
+            </li>
+            <li routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+                true}" routerLink="/ecommerce-order/order-my-address">
+                <img src="assets/images/icon/profile_myaddress_deactive.png" class="img-responsive margin-right-5">&nbsp;Address
+            </li>
+            <li routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+                true}" routerLink="/ecommerce-order/order-manage-payment">
+                <img src="assets/images/icon/profile_payments_deactive.png" class="img-responsive margin-right-5">&nbsp;Payments
+            </li>
+            <li routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+            true}" routerLink="/ecommerce-order/order-communication-support">
+                <img src="assets/images/icon/profile_communsupport_deactive.png" class="img-responsive margin-right-5">&nbsp;Communication & Support
+            </li> 
+            <li routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+            true}" routerLink="/ecommerce-order/my-chat">
+                <img src="assets/images/icon/profile_mychat_deactive.png" class="img-responsive margin-right-5">&nbsp; My Chats
+            </li> 
+            <li routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+            true}" routerLink="/ecommerce-order/notification"> 
+                <img src="assets/images/icon/profile_notification_deactive.png" class="img-responsive margin-right-5">&nbsp; Notifications
+            </li>  
+        </ul> 
+    </div>
+ </div>

@@ -1,0 +1,478 @@
+<app-header></app-header>
+<!-- Content -->
+ <div id="content">
+    <section class="padding-top-30 padding-bottom-30">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9 col-lg-9 col-sm-12 col-xs-12">
+                    <div class="pyment-login">
+                        <div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
+                            <div class="my-payment-login bg-white" *ngIf = "isLoggedIn == 0">
+                              <div class="" role="tab" id="headingOne1">
+                                <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne1" aria-expanded="true"
+                                  aria-controls="collapseOne1">
+                                  <h5 class="m-0">
+                                      1. Login
+                                  </h5>
+                                </a>
+                              </div>
+                              <div id="collapseOne1" class="collapse show border-top" role="tabpanel" aria-labelledby="headingOne1"
+                                data-parent="#accordionEx">
+                                  <div class="my-payment-log">
+                                    <div class="form-group"> 
+                                        <input type="number" class="form-control" placeholder="Enter Email/Mobile No." [(ngModel)] = "mobile_number" />  
+                                    </div>
+                                    <div class="form-group"> 
+                                        <input type="password" class="form-control" placeholder="Enter Your Password" [(ngModel)] = "password" />  
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="button" class="profile-payment btn-green btn-block" (click) = "loginPlaceOrder()" >LOGIN</button>
+                                    </div>
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="my-delivery bg-white">
+                                <div class="" role="tab" id="headingTwo2">
+                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseTwo2"
+                                    aria-expanded="false" aria-controls="collapseTwo2">
+                                    <h5 class="m-0">
+                                        2. Delivery
+                                    </h5>
+                                    </a>
+                                </div>
+                                <div id="collapseTwo2" class="collapse" role="tabpanel" aria-labelledby="headingTwo2"
+                                    data-parent="#accordionEx">
+                                        <div class="delivery-cart">
+                                            <div class="margin-bottom-20 float-right">
+                                                <button (click) = "openModel()" class="profile-payment btn-green">Add</button>    
+                                            </div>
+                                            <div class="delivery-address-crt"> 
+                                                <ul *ngFor = "let data of addressData">
+                                                    <li>
+                                                        <div class="addirsst-crt-all">
+                                                            <div class="form-radio">
+                                                                <div class="radio">
+                                                                    <input id="radio14" name="radio" type="radio"  (change) = "checkRadio(data._id)" >
+                                                                    <label for="radio-14" class="radio-label">
+                                                                        <h6>{{data.name}} <span class="margin-left-5 pga">{{data.addressType}}</span></h6>
+                                                                        <h5>{{data.contact_number}}</h5>
+                                                                        <p>{{data.landmark}}</p>
+                                                                    </label>
+                                                                </div>
+                                                            </div> 
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <a>
+                                                            <img src="assets/images/icon/edit_grayicon.png" class="img-responsive">
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                              
+                                                <div class="form-group text-center">
+                                                    <button type="button" (click) = "addShippingAddress()" class="profile-payment btn-green">Deliver Here</button>
+                                                </div> 
+                                            </div>
+                                            <div class="deliver-tym">
+                                                <ul>
+                                                    <li>
+                                                        <div class="addirsst-crt-all">
+                                                            <div class="form-radio">
+                                                                <div class="radio">
+                                                                    <input id="radio15" name="radio1" type="radio" checked (change) = "changeStatus(0)"> 
+                                                                    <label for="radio-15" class="radio-label">
+                                                                        <p>I Want My Order ASAP</p>
+                                                                    </label>
+                                                                </div>
+                                                            </div> 
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="addirsst-crt-all">
+                                                            <div class="form-radio">
+                                                                <div class="radio">
+                                                                    <input id="radio15" name="radio1" type="radio" checked (change) = "changeStatus(1)">
+                                                                    <label for="radio-15" class="radio-label">
+                                                                        <p>I Want To Schedule my Order</p> 
+                                                                    </label>
+                                                                </div>
+                                                            </div> 
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="deliver-tym-schedule" *ngIf = "isScheduleShow == 1">
+                                                <div class="tabbable-panel">
+                                                    <div class="tabbable-line">
+                                                        <ul class="nav nav-tabs ">
+                                                            <li *ngFor = "let data of deliveryTime">
+                                                                <a href="#nov1" data-toggle="tab">
+                                                                    {{data.date}}<br>
+                                                                    <span>{{data.day}}</span>
+                                                                </a>
+                                                            </li>
+                                                            <!-- <li>
+                                                                <a href="#nov2" data-toggle="tab">
+                                                                    2 November<br>
+                                                                    <span>Friday</span>
+                                                                </a>
+                                                            </li> -->
+                                                        </ul>
+                                                        <div class="tab-content">
+                                                            <div class="tab-pane active" id="keyfeatures">
+                                                                <div class="delivery-date">
+                                                                    <ul>
+                                                                            <li *ngFor = "let data of deliveryTime[0]?.time">
+                                                                                <div class="form-radio addirsst-crt-all"> 
+                                                                                    <div class="radio">
+                                                                                        <input id="radio15" name="radio1" type="radio" checked>
+                                                                                        <label for="radio-15" class="radio-label">
+                                                                                            <p>{{data.start_time}} - {{data.end_time}}</p> 
+                                                                                        </label>
+                                                                                        <span class="float-right text-success fw-600">Available</span> 
+                                                                                    </div>
+                                                                                </div>   
+                                                                            </li>
+                                                                            <!-- <li>
+                                                                                <div class="form-radio addirsst-crt-all"> 
+                                                                                    <div class="radio">
+                                                                                        <input id="radio15" name="radio1" type="radio" checked>
+                                                                                        <label for="radio-15" class="radio-label">
+                                                                                            <p>5:00 Pm - 6:00 Pm</p> 
+                                                                                        </label>
+                                                                                        <span class="float-right text-danger fw-600">Not Available</span> 
+                                                                                    </div>
+                                                                                </div>   
+                                                                            </li> -->
+                                                                    </ul> 
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="order-summary bg-white">
+                            <div class="" role="tab" id="headingThree3">
+                                <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseThree3"
+                                aria-expanded="false" aria-controls="collapseThree3">
+                                <h5 class="m-0">
+                                    3. Order Summary
+                                </h5>
+                                </a>
+                            </div>
+                            <div id="collapseThree3" class="collapse" role="tabpanel" aria-labelledby="headingThree2"
+                                data-parent="#accordionEx">
+                                    <div class="order-detail border-top">
+                                        <div class="cart-details-page bg-white" *ngFor = "let element of data">
+                                            <div class="my-product-cart">
+                                                <div class="row">
+                                                    <div class="col-md-3 col-lg-3">
+                                                    <div class="product-cart-img">
+                                                        <img [src]="imgUrl+element.img" class="img-responsive">
+                                                    </div>
+                                                    </div>
+                                                    <div class="col-md-9 col-lg-9"> 
+                                                        <div claass="cart-left">
+                                                        <div class="cart-details-title">
+                                                            <h5>{{element.name}}</h5> 
+                                                        </div>
+                                                        <p class="rev">
+                                                            <i class="fa fa-star yellow margin-right-5"></i>
+                                                            <i class="fa fa-star yellow margin-right-5"></i> 
+                                                            <i class="fa fa-star yellow margin-right-5"></i>  
+                                                            <i class="fa fa-star yellow margin-right-5"></i>
+                                                            <i class="fa fa-star gray margin-right-5"></i>
+                                                            <span class="margin-left-10  text-danger">4.4</span>
+                                                        </p>
+                                                        <div class="cart-page-price">
+                                                            <ul>
+                                                                <li>
+                                                                    <h6>Rs {{element.amount}}</h6>
+                                                                </li>
+                                                                <li><small>Product Code:FXADZ71234</small></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="cart-price-less">
+                                                            <ul>
+                                                                <li>
+                                                                    <p><del class="margin-right-5">Rs {{element.amount}}</del> <span class="gold fw-500">Order 2 get 10% OFF</span></p>
+                                                                </li>
+                                                                <li>
+                                                                    <div class="stock">
+                                                                        In Stock
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="cart-other border-bottom">
+                                                            <p class="fs-12">Including of all taxes</p>
+                                                            <p> <span class="fw-500 gold">FREE SHIPPING</span> on orders over <span>Rs {{element.amount}}</span></p>
+                                                        </div>
+                                                        <div class="cart-price-less">
+                                                            <ul>
+                                                                <li> 
+                                                                    <div class="box-qty">
+                                                                        <span class="margin-right-5 black">Quantity: </span>
+                                                                        <button class="quantity-minus">-</button>
+                                                                        <input type="text" name="p_quantity" id="qnt" class="quantity" value= {{element.quantity}}>
+                                                                        <button class="quantity-plus">+</button>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group text-center">
+                                            <button type="button" 
+                                            data-toggle="collapse" data-parent="#accordionEx" href="#collapseFour4"
+                                    aria-expanded="false" aria-controls="collapsefour4"
+                                            
+                                            class="profile-payment btn-green">CONTINUE</button>
+                                        </div>
+                                    </div>
+                            </div> 
+                            </div>
+                            <div class="payment-option bg-white">
+                                <div class="" role="tab" id="headingFour4">
+                                  <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseFour4"
+                                    aria-expanded="false" aria-controls="collapsefour4">
+                                    <h5 class="m-0">
+                                        4. Payment Option
+                                    </h5>
+                                  </a>
+                                </div>
+                                <div id="collapseFour4" class="collapse" role="tabpanel" aria-labelledby="headingFour4"
+                                  data-parent="#accordionEx">
+                                    <div class="payment-details">
+                                        <ul>
+                                            <li *ngFor = "let data of cardData">
+                                                <div class="form-radio addirsst-crt-all"> 
+                                                    <div class="radio" >
+                                                        <input id="radio16" name="radio2" type="radio" checked>
+                                                        <label for="radio-16" class="radio-label">
+                                                            <p class="fw-600">Master Card <span class="fw-300 margin-right-7">{{data.card_number}}</span> <img src="assets/images/icon/payment_mastercard.png" width="30px;" class="img-responsive"></p> 
+                                                        </label>
+                                                    </div>
+                                                    
+                                                </div>    
+                                                <div class="marster-card">
+                                                    <div class="row">
+                                                        <div class="col-md-2">
+                                                            <input type="text" [(ngModel)]="searchWord" class="form-control border-bottom-input" placeholder="Enter CVV" >
+                                                        </div>
+                                                        <div class="col-md-offset-7 col-md-3">
+                                                            <div class="text-right">
+                                                                <button type="button" (click) = "placeOrder(data.customer_id, data.card_id)" class="btn-block profile-payment btn-green">Proceed</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>   
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="form-radio addirsst-crt-all"> 
+                                                    <div class="radio">
+                                                        <input id="radio16" name="radio2" type="radio" checked>
+                                                        <label for="radio-16" class="radio-label">
+                                                            <p class="fw-600">Add Card <img src="assets/images/icon/card_icon.png" width="30px;" class="margin-left-7 img-responsive"></p> 
+                                                        </label>
+                                                    </div>
+                                                </div>    
+                                                <div class="marster-card">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <input type="text" class="form-control border-bottom-input margin-bottom-10" placeholder="Enter Name">
+                                                            <input type="text" class="form-control border-bottom-input margin-bottom-10" placeholder="Enter Card Number">
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <input type="text" class="form-control border-bottom-input margin-bottom-10" placeholder="Enter Expiry Date">
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <input type="text" class="form-control border-bottom-input margin-bottom-10" placeholder="Enter CVV">
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="col-md-offset-3 col-md-3">
+                                                            <div class="text-right">
+                                                                <button type="button" class="btn-block profile-payment btn-green">Proceed</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>   
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="form-radio addirsst-crt-all"> 
+                                                    <div class="radio">
+                                                        <input (change) = "COD()" id="radio16" name="radio2" type="radio" checked>
+                                                        <label for="radio-16" class="radio-label">
+                                                            <p class="fw-600">Cash <img src="assets/images/icon/card_icon.png" width="30px;" class="margin-left-7 img-responsive" ></p> 
+                                                        </label>
+                                                        <div class="float-right">
+                                                            <button type="button" class="btn-block profile-payment btn-green" (click) = "codPayment()">Proceed</button>
+                                                        </div>
+                                                    </div>
+                                                </div> 
+                                            </li>
+                                            <li>
+                                                <div class="form-radio addirsst-crt-all"> 
+                                                    <div class="radio">
+                                                        <input id="radio16" name="radio2" type="radio" checked>
+                                                        <label for="radio-16" class="radio-label">
+                                                            <p class="fw-600">EMI <img src="assets/images/icon/card_icon.png" width="30px;" class="margin-left-7 img-responsive"></p> 
+                                                        </label>
+                                                        <div class="float-right">
+                                                            <button type="button" class="btn-block profile-payment btn-green">Proceed</button>
+                                                        </div>
+                                                    </div>
+                                                </div> 
+                                            </li>
+                                        </ul>  
+                                    </div>
+                                </div>
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+                <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
+                    <div class="cart-sub-total bg-white">
+                        <div class="cart-total-price">
+                            <ul>
+                                <li>
+                                    <h5>Sub-Total:</h5>
+                                </li>
+                                <li><h4>$ {{totalAmount}}</h4></li>
+                            </ul>
+                        </div>
+                        <div class="cart-total-price">
+                            <ul>
+                                <li>
+                                    <p>GST-0%:</p>
+                                </li>
+                                <li><p>0</p></li>
+                            </ul>
+                        </div>
+                        <div class="cart-coupan">  
+                            <button class="aply-coupan" *ngIf = "data.is_coupan_applied == 1">
+                                <span class="float-left">Coupan Applied</span> <a class="text-danger float-right">Remove</a>
+                            </button>
+                        </div>
+                        <div class="cart-total-price">
+                            <ul>
+                                <li>
+                                    <p>Coupan Discount</p>
+                                </li>
+                                <li><p>-$ 0</p></li>
+                            </ul>
+                        </div>
+                        <div class="cart-total-price">
+                            <ul>
+                                <li>
+                                    <h5>Total:</h5>
+                                </li>
+                                <li><h4>$ {{totalAmount}}</h4></li>
+                            </ul>
+                        </div>
+                    </div>    
+                </div>
+            </div>  
+        </div>
+    </section> 
+ </div>
+<app-footer></app-footer>    
+
+
+<div class="modal fade" id="myModal">
+    <form [formGroup] = "addressForm">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-body">
+          <button class="cross" data-dismiss="modal"><img src="assets/images/icon/cross-2.png"/></button>
+           <div class="row">
+                <div class="col-md-12">
+                     <div class="margin-top-10 form-group">
+                          <label>Name</label>
+                          <input type="text" class="form-control" formControlName = "name">
+                          <p *ngIf="addressForm.get('name').hasError('required') && addressForm.get('name').dirty">*name required</p>
+                          <p *ngIf="addressForm.get('name').hasError('pattern') && addressForm.get('name').dirty">*name should be Valid</p>
+                          <p *ngIf="addressForm.get('name').hasError('maxlength') && addressForm.get('name').dirty">*name length has exceeded</p>
+
+                     </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                         <label>Delivery Type</label>
+                         <select class="form-control" formControlName = "type">
+                              <option value="1">Home</option>
+                              <option value="2">Office</option>
+                              <option value="3">Others</option>
+                         </select>
+                    </div>
+               </div>
+               <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Mobile Number</label>
+                        <input type="text" class="form-control" formControlName = "contact_number"> 
+                        <p *ngIf="addressForm.get('contact_number').hasError('required') && addressForm.get('contact_number').dirty">*mobile required</p>
+
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Landmark</label>
+                        <input type="text" class="form-control" formControlName = "landmark"> 
+                        <p *ngIf="addressForm.get('landmark').hasError('required') && addressForm.get('landmark').dirty">*Landmark required</p>
+
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>city</label>
+                        <input type="text" class="form-control"  formControlName = "city">
+                        <p *ngIf="addressForm.get('city').hasError('required') && addressForm.get('city').dirty">*City required</p>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>State</label>
+                        <input type="text" class="form-control"  formControlName = "state"> 
+                        <p *ngIf="addressForm.get('state').hasError('required') && addressForm.get('state').dirty">*State required</p>
+
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Pin</label>
+                        <input type="text" class="form-control"  formControlName = "pin"> 
+                        <p *ngIf="addressForm.get('pin').hasError('required') && addressForm.get('pin').dirty">*Pin required</p>
+
+                    </div>
+                </div>
+                <!-- <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Address</label>
+                        <textarea class="form-control" rows="4"></textarea>
+                    </div>
+                </div> -->
+                <div class="col-md-12">
+                    <div class="">
+                        <button type="button" (click) = "saveAddress()" [disabled] = "!addressForm.valid"  class="profile-payment btn-green btn-block">Save</button> 
+                    </div> 
+                </div>
+           </div>
+        </div>
+      </div>
+    </div>
+    </form>
+  </div>

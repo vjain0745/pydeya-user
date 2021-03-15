@@ -1,0 +1,307 @@
+<app-header></app-header>
+
+<!-- Content -->
+ <div id="content">
+    <section class="padding-top-30 padding-bottom-30">
+        <div class="container">
+            <div class="bg-white">
+                <div class="row">
+                    <div class="col-md-12"> 
+                        <div class="product-detail">
+                            <div class="product">
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="container1"> 
+                                            <div class="exzoom hid_den" id="exzoom">
+                                                <div class="exzoom_nav"></div>
+                                                <p class="exzoom_btn">
+                                                    <a href="javascript:void(0);" class="exzoom_prev_btn"> <i class="fa fa-angle-up" aria-hidden="true"></i></a>
+                                                    <a href="javascript:void(0);" class="exzoom_next_btn"> <i class="fa fa-angle-down" aria-hidden="true"></i> </a>
+                                                </p>
+                                                <div class="exzoom_img_box">
+                                                    <ul class='exzoom_img_ul' *ngFor = "let imageData of productData?.product_other_image">
+                                                        <li><img [src]="imgUrl+imageData"/></li>
+                                                        <!-- <li><img src="https://cdn.shopify.com/s/files/1/2972/9158/files/Women_s_Workwear_4b870141-ab2a-42a2-be43-3aeb8c91c3e4.jpg?v=1538020629"/></li>
+                                                        <li><img src="https://www.review-australia.com/on/demandware.static/-/Sites-review-master-catalog/default/dwb190a7c7/images/RE18DR103_REBLU109_1.jpg"/></li>
+                                                        <li><img src="https://www.estylecdn.com/manufcols/moncheri/socialoccasions-current/zoomalt/115869_004-H_Guest_of_the_Wedding.jpg"/></li>
+                                                        <li><img src="https://assets.abfrlcdn.com/img/app/categorymedia/production/1/175-2-600.jpg"/></li>
+                                                        <li><img src="http://tomtayloronline.org/wp-content/uploads/2018/10/dresses-and-jewellery-traditions-across-different-states-of-india-traditional-indian-dress-macys-dresses.jpg"/></li>
+                                                        <li><img src="https://site0476.shopcadacdn.com/sites/files/site0476/imagecache/bs2016_list/productimg/201812/fleur_label_24_nov66422.jpg"/></li> -->
+                                                    </ul>
+                                                </div>   
+                                            </div>
+                                        </div>
+                                        <div class="social-p text-center">
+                                            <a class="pointer"><img src="assets/images/icon/social-1.png" class="img-responsive margin-right-5"></a>
+                                            <a class="pointer"> <img src="assets/images/icon/social-2.png" class="img-responsive margin-right-5"></a> 
+                                            <a class="pointer"><img src="assets/images/icon/social-3.png" class="img-responsive margin-right-5"></a>
+                                            <a class="pointer"> <img src="assets/images/icon/social-4.png" class="img-responsive margin-right-5"></a>
+                                            <a class="pointer"> <img src="assets/images/icon/social-5.png" class="img-responsive margin-right-5"></a>
+                                            <a class="pointer"><img src="assets/images/icon/social-6.png" class="img-responsive margin-right-5"></a>
+                                            <a class="pointer"><img src="assets/images/icon/social-7.png" class="img-responsive margin-right-5"></a>
+                                        </div>
+                                        </div> 
+                                    <!-- Item Content -->
+                                    <div class="col-lg-6 col-xl-6 col-md-6 col-sm-6">
+                                        <div class="product-details-page">
+                                            <div class="product-details-title">
+                                                <h5>{{productData?.product_name}}</h5> 
+                                            </div>
+                                            <p class="rev">
+                                                <i class="fa fa-star margin-right-5"></i>
+                                                <i class="fa fa-star margin-right-5"></i>
+                                                <i class="fa fa-star margin-right-5"></i>
+                                                <i class="fa fa-star margin-right-5"></i>
+                                                <i class="fa fa-star gray margin-right-5"></i>
+                                                <span class="margin-left-10 text-danger">4.4</span>
+                                            </p>
+                                            <div class="product-page-price">
+                                                <ul>
+                                                    <li>
+                                                        <h6>Rs {{productData?.sellingPrice}}</h6>
+                                                    </li>
+                                                    <li><small>Product Code:FXADZ71234</small></li>
+                                                </ul>
+                                            </div>
+                                            <div class="product-price-less">
+                                                <ul>
+                                                    <li>
+                                                        <p><del class="margin-right-5">Rs {{productData?.mrp}}</del> <span class="gold fw-500">Order 2 get 10% OFF</span></p>
+                                                    </li>
+                                                    <li>
+                                                        <div class="stock">
+                                                            In Stock
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="product-other">
+                                                <p class="fs-12">Including of all taxes</p>
+                                                <p> <span class="fw-500 gold">FREE SHIPPING</span> on orders over <span>Rs 32494</span></p>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                                    <div class="quantity-count">
+                                                        <h6>Quantity:</h6> 
+                                                        <div class="box-qty">
+                                                            <button class="quantity-minus">-</button>
+                                                            <input type="text" name="p_quantity" id="qnt" class="quantity" value="1">
+                                                            <button class="quantity-plus">+</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- List Details -->
+                                            <div class="available-offers">
+                                                <h6>Available Offers</h6>
+                                                <ul *ngFor = "let data of productData?.descriptionArr">
+                                                    <li><span class="margin-right-5"><img src="assets/images/icon/discount.png"/></span><b class="margin-right-5">{{data}}</b></li>
+                                                    <!-- <li><span class="margin-right-5"><img src="assets/images/icon/discount.png"/></span><b class="margin-right-5">Bank Offer Extra 5% off</b>Processor: 2.5 GHz None</li>
+                                                    <li><span class="margin-right-5"><img src="assets/images/icon/discount.png"/></span><b class="margin-right-5">No cost EMI Rs.4,500/month</b>RAM: 8 GB</li> -->
+                                                </ul>
+                                            </div>
+                                            <!-- Colors -->
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="pro-size">
+                                                        <h6>Color</h6>
+                                                        <div class="round">
+                                                            <input type="radio" id="checkbox1" name="radio" />
+                                                            <label for="checkbox1" style="background-color: #000;"></label>
+                                                        </div>
+                                                        <div class="round">
+                                                            <input type="radio" id="checkbox2" name="radio" />
+                                                            <label for="checkbox2" style="background-color: #fff;"></label>
+                                                        </div>
+                                                        <div class="round">
+                                                            <input type="radio" id="checkbox3" name="radio" />
+                                                            <label for="checkbox3" style="background-color: #66d5f7;"></label>
+                                                        </div>
+                                                        <div class="round">
+                                                            <input type="radio" id="checkbox4" name="radio" />
+                                                            <label for="checkbox4" style="background-color: #884f08;"></label>
+                                                        </div>
+                                                        <div class="round">
+                                                            <input type="radio" id="checkbox5" name="radio" />
+                                                            <label for="checkbox5" style="background-color: #e6d7c5;"></label>
+                                                        </div>
+                                                        <div class="round"> 
+                                                            <input type="radio" id="checkbox6" name="radio" />
+                                                            <label for="checkbox6" style="background-color: #e2d57c;"></label>
+                                                        </div>
+                                                        <div class="round">
+                                                            <input type="radio" id="checkbox7" name="radio" />
+                                                            <label for="checkbox7" style="background-color: #427d01;"></label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <div class="product-btn-all"> 
+                                                        <label><input type="checkbox"  (change) = "like()" hidden/><span><i   *ngIf = "likeStatus == 0" class="fa fa-heart-o"></i>
+                                                            <i   *ngIf = "likeStatus == 1" style="color:red" class="fa fa-heart-o"></i></span></label>
+                                                        <!-- <label><input  type="checkbox" *ngIf = "likeStatus == 1" (change) = "unlike()" hidden/><span></span><i class="fa fa-heart-o" style="color:red"></i></span></label> -->
+
+                                                        <button type="submit" class="mt-0 order-help bg-theme margin-right-10" (click) = "addToCart()">ADD TO CARD</button>
+                                                        <button type="submit" class="mt-0 order-help bg-success" (click) = "buyNow()">Buy Now</button> 
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <div class="adding-cart">
+                                                        <div class="pick-address"> 
+                                                            <h6>Delivery</h6>
+                                                            <div class="pick-block">
+                                                                <div class="in-search">
+                                                                    <input type="text"  class="form-control" placeholder="Enter Delivery Pin Code"/>
+                                                                    <i class="fa search-p fa-map-marker"></i>
+                                                                    <a href="javascript:void(0);" class="p-check theme-color fw-600">Check</a>
+                                                                </div>
+                                                                <button>Enter Pincode</button>
+                                                            </div>
+                                                        </div>
+                                                        <p class="gold">*COD is available for minimum order of <span>Rs.999</span></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="product-description">
+                            <div class="tabbable-panel">
+                                <div class="tabbable-line">
+                                    <ul class="nav nav-tabs ">
+                                        <li class="active">
+                                            <a href="#keyfeatures" data-toggle="tab">
+                                            Key Features</a>
+                                        </li>
+                                        <li>
+                                            <a href="#overview" data-toggle="tab">
+                                        Overview</a>
+                                        </li>
+                                        <li>
+                                            <a href="#specs" data-toggle="tab">
+                                            Specs</a>
+                                        </li>
+                                        <li>
+                                            <a href="#reviews" data-toggle="tab">
+                                            Reviews</a>
+                                        </li>
+                                        <li>
+                                            <a href="#qaw" data-toggle="tab">
+                                            Q&A27</a>
+                                        </li>
+                                        <li>
+                                            <a href="#accessories" data-toggle="tab">
+                                            Accessories</a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="keyfeatures">
+                                            <p>
+                                                I'm in Tab 1. 
+                                            </p>
+                                            <p>
+                                                Duis autem eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.
+                                            </p>
+                                        </div>
+                                        <div class="tab-pane" id="overview">
+                                            <p>
+                                                Howdy, I'm in Tab 2.
+                                            </p>
+                                            <p>
+                                                Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Ut wisi enim ad minim veniam, quis nostrud exerci tation.
+                                            </p>
+                                            
+                                        </div>
+                                        <div class="tab-pane" id="specs">
+                                            <p>
+                                                Howdy, I'm in Tab 3.
+                                            </p>
+                                            <p>
+                                                Duis autem vel eum iriure dolor in hendrerit in vulputate. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat
+                                            </p>
+                                        </div>
+                                        <div class="tab-pane" id="reviews">
+                                                <p>
+                                                    Howdy, I'm in Tab 3.
+                                                </p>
+                                                <p>
+                                                    Duis autem vel eum iriure dolor in hendrerit in vulputate. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat
+                                                </p>
+                                        </div>  
+                                        <div class="tab-pane" id="accessories">
+                                            <p>
+                                                Howdy, I'm in Tab 3.
+                                            </p>
+                                            <p>
+                                                Duis autem vel eum iriure dolor in hendrerit in vulputate. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat
+                                            </p>
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">                                                        
+                    <div class="col-md-12">
+                        <div class="similar-product-title">
+                            <h6 class="fw-600">Similar Product</h6>
+                        </div>
+                    </div>
+                    <div class="col-md-3" *ngFor = "let data of productData.similarData">
+                        <div class="product-grid">
+                            <div class="product-grid-img">  
+                                <img [src]="imgUrl+data.product_image" class="img-responsive">
+                                <div class="list-icon">
+                                    <img src="assets/images/icon/heart_fillicon.png" width="10px" class="img-responsive">
+                                </div> 
+                                <div> 
+                                    <small class="list-off">0 % OFF</small>
+                                </div>
+                            </div>
+                            <div class="product-grid-detail">
+                                <div class="product-grid-title product-grid-title1">
+                                    <h6>
+                                        {{data.product_name}}
+                                    </h6>
+                                </div>
+                                <div class="product-grid-star">
+                                    <ul>
+                                        <li>
+                                            <p>
+                                                {{data.product_name}}
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <div class="product-star">
+                                                <i class="fa fa-star"></i> 4.5
+                                            </div>
+                                        </li>
+                                    </ul> 
+                                </div>
+                                <div class="product-grid-star product-grid-rs">
+                                    <ul>
+                                        <li>
+                                            <span class="margin-right-10 light-color">{{data.mrp}}</span><span class="dark-color margin-right-5">{{data.sellingPrice}}</span>
+                                        </li>
+                                        <li>
+                                            <small class="yellow fw-600">In stock</small>
+                                        </li>
+                                    </ul> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>  
+    </section> 
+ </div>
+<app-footer></app-footer>    

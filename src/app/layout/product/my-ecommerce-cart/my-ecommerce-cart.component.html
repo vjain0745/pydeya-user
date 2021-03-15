@@ -1,0 +1,168 @@
+<app-header></app-header>
+
+<!-- Content -->
+ <div id="content">
+    <section class="padding-top-30 padding-bottom-30">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-offset-1 col-md-10 col-lg-10 col-sm-12 col-xs-12"> 
+                    <div class="order-right-button margin-bottom-30">
+                        <button type="submit" class="mt-0 btn-green btn-block order-right-margin1" routerLink="">Ecommerce/Grocery</button>
+                        <!-- <button type="submit" class="mt-0 btn-white btn-block" routerLink="">Grocery</button> -->
+                        <button type="submit" class="mt-0 btn-white btn-block order-right-margin1" routerLink="">Food Ordering</button>
+                        <button type="submit" class="mt-0 btn-white btn-block order-right-margin1" routerLink="">Pharmacy</button>
+                    </div>
+                </div>
+                <div class="col-md-9 col-lg-9 col-sm-12 col-xs-12">
+                    <div class="cart-details-page bg-white" *ngFor = "let element of data">
+                          <div class="my-product-cart">
+                              <div class="row">
+                                  <div class="col-md-3 col-lg-3">
+                                    <div class="product-cart-img">
+                                        <img [src]= "imageUrl+element.img" class="img-responsive">
+                                    </div>
+                                  </div>
+                                  <div class="col-md-9 col-lg-9"> 
+                                      <div claass="cart-left">
+                                        <div class="cart-details-title">
+                                            <h5>{{element?.name}}</h5> 
+                                        </div>
+                                        <p class="rev">
+                                            <i class="fa fa-star yellow margin-right-5"></i>
+                                            <i class="fa fa-star yellow margin-right-5"></i> 
+                                            <i class="fa fa-star yellow margin-right-5"></i>  
+                                            <i class="fa fa-star yellow margin-right-5"></i>
+                                            <i class="fa fa-star gray margin-right-5"></i>
+                                            <span class="margin-left-10  text-danger">4.4</span>
+                                        </p>
+                                        <div class="cart-page-price">
+                                            <ul>
+                                                <li>
+                                                    <h6>Rs {{element?.amount}}</h6>
+                                                </li>
+                                                <li><small>Product Code:FXADZ71234</small></li>
+                                            </ul>
+                                        </div>
+                                        <div class="cart-price-less">
+                                            <ul>
+                                                <li>
+                                                    <p><del class="margin-right-5">Rs {{element.amount}}</del> <span class="gold fw-500">Order 2 get 10% OFF</span></p>
+                                                </li>
+                                                <li>
+                                                    <div class="stock">
+                                                        In Stock
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="cart-other border-bottom">
+                                            <p class="fs-12">Including of all taxes</p>
+                                            <p> <span class="fw-500 gold">FREE SHIPPING</span> on orders over <span>Rs 15000</span></p>
+                                        </div>
+                                        <div class="cart-price-less">
+                                            <ul>
+                                                <li> 
+                                                    <div class="box-qty">
+                                                        <span class="margin-right-5 black">Quantity: </span>
+                                                        <button class="quantity-minus">-</button>
+                                                        <input type="text" name="p_quantity" id="qnt" class="quantity" value={{element?.quantity}}>
+                                                        <button class="quantity-plus">+</button>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                   <div class="cart-remove" (click) = "removeFromCart(element?.product_id , element)">
+                                                        <img src="assets/images/icon/gray_deleteicon.png" class="img-responsive margin-right-5"><span>Remove</span>
+                                                   </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
+                    <div class="cart-sub-total bg-white">
+                        <div class="cart-total-price">
+                            <ul>
+                                <li>
+                                    <h5>Sub-Total:</h5>
+                                </li>
+                                <li><h4>$ {{totalAmount}}</h4></li>
+                            </ul>
+                        </div>
+                        <div class="cart-total-price">
+                            <ul>
+                                <li>
+                                    <p>GST- 0%:</p>
+                                </li>
+                                <li><p>$ 0</p></li>
+                            </ul>
+                        </div>
+                        <div class="cart-coupan">
+                            <button class="aply-coupan" id="notify" (click)="openCoupan()">
+                                Coupan Apply
+                            </button>
+                        </div>
+                        <div class="cart-total-price">
+                            <ul>
+                                <li>
+                                    <h5>Total:</h5>
+                                </li>
+                                <li><h4>$ {{totalAmount}}</h4></li>
+                            </ul>
+                        </div>
+                        <div class="cart-submit margin-top-30"> 
+                            <button type="submit" class="mt-0 cart-help bg-success" (click) = "placeOrder()">PLACE ORDER</button>
+                        </div>
+                    </div>    
+                </div>
+            </div>  
+        </div>
+    </section> 
+ </div>
+<app-footer></app-footer>    
+
+<div id="coupan" class="sidebar-right padding-0">
+    <a href="javascript:void(0)" id="close-bn" class="closebtn" (click)="closeCoupan()">
+       <img src="assets/images/icon/rightside_popup_crossicon.png" width="30px;">
+    </a>
+    <div class="coupan-class">
+        <div class="coupan-class-title border-bottom">
+            <h6>Apply Coupan</h6>
+        </div>
+        <div class="coupan-card" *ngFor = "let data of coupanData">
+            <div class="cart-coupan">
+                <button class="aply-coupan1">
+                  {{data.coupan_code}}
+                </button>
+            </div>
+            <div class="apply-detail">
+                <h6>
+                    {{data.name}}
+                </h6>
+                <p>
+                    {{data.description}}
+                </p>
+                <a (click) = "applyCoupan(data.discount_percentage, data.coupan_code)">Apply</a>
+            </div>
+        </div>
+        <!-- <div class="coupan-card">
+            <div class="cart-coupan">
+                <button class="aply-coupan1">
+                  ORDER50
+                </button>
+            </div>
+            <div class="apply-detail">
+                <h6>
+                    Get 20% OFF on your use code
+                </h6>
+                <p>
+                    Get 50% OFF on your first 5 Orders on the App Maximum discount: $100 per order.
+                </p>
+                <a>Apply</a>
+            </div>
+        </div> -->
+    </div>
+</div>
